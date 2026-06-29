@@ -1,0 +1,35 @@
+---
+import Container from "@/components/ui/Container.astro";
+import SectionIntro from "@/components/ui/SectionIntro.astro";
+import Icon from "@/components/ui/Icon.astro";
+
+const pains = [
+  { icon: "scale", title: "Tường nặng", desc: "Tăng chi phí kết cấu, dễ lún nứt." },
+  { icon: "clock", title: "Thi công chậm", desc: "Tốn công, chậm tiến độ." },
+  { icon: "thermometer", title: "Cách nhiệt – cách âm kém", desc: "Nhà nóng, ồn, tốn điện điều hòa và giảm tiện nghi." },
+  { icon: "exclamation-circle", title: "Khó kiểm soát", desc: "Chất lượng không đồng đều, chi phí tăng." },
+];
+---
+
+<section id="pain" class="bg-ink-50 py-22">
+  <Container>
+    <SectionIntro align="left" label="Vấn đề thực tế" title="Công trình của bạn đang gặp vấn đề gì?" />
+
+    <div class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {pains.map((p, i) => (
+        <div data-aos="fade-up" data-aos-delay={i * 80} class="rounded-xl border-l-4 border-red-500 bg-white p-6">
+          <Icon name={p.icon} class="mb-4 h-10 w-10 text-red-500" />
+          <h4 class="mb-1.5 font-bold text-ink-800">{p.title}</h4>
+          <p class="text-sm leading-relaxed text-ink-600">{p.desc}</p>
+        </div>
+      ))}
+    </div>
+
+    <div data-aos="fade-up" class="mt-10 flex flex-col items-center gap-5 rounded-2xl bg-gradient-to-br from-brand to-brand-darkest px-9 py-8 text-center text-white sm:flex-row sm:text-left">
+      <Icon name="arrow-right" class="h-11 w-11 shrink-0 text-brand-accent" />
+      <p class="text-lg leading-relaxed">
+        <strong class="text-brand-accent">AAC79 PLUS giải quyết tất cả những vấn đề trên</strong> – Từ vật liệu AAC đến thi công và tư vấn kỹ thuật – đồng bộ, nhanh, hiệu quả.
+      </p>
+    </div>
+  </Container>
+</section>

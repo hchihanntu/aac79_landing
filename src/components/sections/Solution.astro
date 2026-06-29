@@ -1,0 +1,50 @@
+---
+import Container from "@/components/ui/Container.astro";
+import Icon from "@/components/ui/Icon.astro";
+
+const cards = [
+  { icon: "cube", title: "Phân phối E-Block/ E-Panel", desc: "Cung cấp đầy đủ gạch E-Block, tấm E-Panel, giao hàng nhanh tại Khánh Hòa & khu vực lân cận." },
+  { icon: "rectangle-stack", title: "Tường E-Block, Sàn E-Panel, vữa & keo chuyên dụng", desc: "Hệ vật liệu đồng bộ giúp thi công nhanh, bám dính tốt và bền lâu." },
+  { icon: "hardhat", title: "Thi công dân dụng & công nghiệp", desc: "Đội ngũ giàu kinh nghiệm, triển khai từ nhà ở đến khách sạn, nhà xưởng." },
+  { icon: "computer-desktop", title: "Tư vấn kỹ thuật & tối ưu kết cấu", desc: "Hỗ trợ chọn vật liệu, giải pháp và tối ưu thi công cho từng công trình." },
+];
+---
+
+<section id="solution" class="py-22">
+  <Container>
+    <div data-aos="fade-up" class="mb-4 text-center">
+      <span class="inline-block rounded-full bg-brand-pale px-3.5 py-1.5 text-xs font-semibold uppercase tracking-widest text-brand-light">Giải pháp của chúng tôi</span>
+    </div>
+
+    <div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-12">
+      <div data-aos="fade-up" class="lg:col-span-5">
+        <h2 class="text-balance text-[clamp(1.7rem,3.5vw,2.6rem)] font-bold leading-tight text-brand-darkest">
+          AAC79 PLUS mang đến giải pháp đồng bộ cho công trình hiện đại
+        </h2>
+        <p class="mt-4 max-w-md text-base leading-relaxed text-ink-600">
+          Không chỉ bán vật liệu, chúng tôi cung cấp giải pháp
+        </p>
+        <a href="#leadform" class="mt-6 inline-flex items-center gap-2 rounded-lg bg-brand px-6 py-3.5 text-sm font-bold text-white transition-colors hover:bg-brand-darkest">
+          <Icon name="paper-airplane" class="h-4 w-4" /> Nhận tư vấn miễn phí
+        </a>
+      </div>
+
+      <div data-aos="fade-up" data-aos-delay="120" class="relative lg:col-span-7">
+        <img src="/images/solution-aac-thi-cong.jpg" alt="Thi công bê tông khí AAC" class="h-[360px] w-full rounded-2xl object-cover" />
+        <div class="absolute bottom-5 left-5 flex items-center gap-1.5 rounded-lg bg-brand-darkest px-4 py-2.5 text-sm font-bold text-white">
+          <Icon name="trophy" class="h-4 w-4" /> Thi công thực tế
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {cards.map((c, i) => (
+        <div data-aos="fade-up" data-aos-delay={i * 80} class="rounded-xl border-t-[3px] border-brand bg-ink-50 p-6 transition-colors hover:bg-brand-pale">
+          <Icon name={c.icon} class="mb-4 h-10 w-10 text-brand" />
+          <h4 class="mb-2 font-bold text-brand-darkest">{c.title}</h4>
+          <p class="text-sm leading-relaxed text-ink-600">{c.desc}</p>
+        </div>
+      ))}
+    </div>
+  </Container>
+</section>

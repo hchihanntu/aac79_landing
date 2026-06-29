@@ -1,0 +1,57 @@
+---
+import Container from "@/components/ui/Container.astro";
+import SectionIntro from "@/components/ui/SectionIntro.astro";
+import Icon from "@/components/ui/Icon.astro";
+
+const projects = [
+  { img: "project-the-summer.jpg", title: "Khách sạn The Summer", place: "Nha Trang, Khánh Hòa" },
+  { img: "project-cuu-long-son-tu.jpg", title: "Cửu Long Sơn Tự", place: "Khánh Hòa" },
+  { img: "project-champa-island.jpg", title: "KDL Champa Island", place: "Nha Trang, Khánh Hòa" },
+  { img: "project-kingtown.jpg", title: "Khách sạn Kingtown", place: "Nha Trang, Khánh Hòa" },
+  { img: "project-navy.jpg", title: "Khách sạn Navy", place: "Nha Trang, Khánh Hòa" },
+  { img: "project-nha-kho-vat-lieu.jpg", title: "Nhà xưởng công nghiệp", place: "KCN Suối Dầu" },
+];
+---
+
+<section id="projects" class="bg-ink-50 py-22">
+  <Container>
+    <SectionIntro
+      label="Dự án tiêu biểu"
+      title="Công trình thực tế của AAC79 PLUS"
+      description="Hàng trăm công trình dân dụng và công nghiệp đã được hoàn thiện với vật liệu AAC và sự đồng hành của đội ngũ AAC79 PLUS."
+    />
+
+    <div data-aos="zoom-in" class="mx-auto mt-11 max-w-3xl overflow-hidden rounded-2xl border border-ink-200 bg-brand-darkest">
+      <div class="bg-brand-accent/10 py-3.5 text-center text-sm font-bold uppercase tracking-wider text-brand">📹 Video dự án thực tế</div>
+      <div class="aspect-video w-full">
+        <iframe
+          class="h-full w-full"
+          src="https://www.youtube.com/embed/M1PSx8WwWAs?si=0dfJTyZG6YvtF0ub"
+          title="Video dự án AAC79 PLUS"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+      </div>
+    </div>
+
+    <div class="mt-11 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {projects.map((p, i) => (
+        <div data-aos="fade-up" data-aos-delay={(i % 3) * 90} class="group relative aspect-[4/3] cursor-pointer overflow-hidden rounded-xl">
+          <img src={`/images/${p.img}`} alt={p.title} class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0f2d19]/85 via-transparent to-transparent transition-opacity group-hover:from-[#0f2d19]/95"></div>
+          <div class="absolute inset-x-0 bottom-0 p-5">
+            <h4 class="font-bold text-white">{p.title}</h4>
+            <span class="text-sm text-white/65">{p.place}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-9 text-center">
+      <a href="#leadform" class="inline-flex items-center gap-2 rounded-lg bg-brand px-6 py-3.5 text-sm font-bold text-white transition-colors hover:bg-brand-darkest">
+        <Icon name="photo" class="h-4 w-4" /> Xem thêm dự án
+      </a>
+    </div>
+  </Container>
+</section>

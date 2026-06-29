@@ -1,0 +1,115 @@
+---
+import Container from "@/components/ui/Container.astro";
+import Icon from "@/components/ui/Icon.astro";
+
+const trustItems = [
+  "Phản hồi trong vòng 30 phút",
+  "Tư vấn kỹ thuật hoàn toàn miễn phí",
+  "Báo giá rõ ràng, không phát sinh chi phí ẩn",
+  "Đội ngũ kỹ sư kinh nghiệm, tận tâm hỗ trợ",
+];
+
+const projectTypes = [
+  "Nhà ở dân dụng",
+  "Khách sạn / Resort",
+  "Nhà xưởng / Kho bãi",
+  "Tòa nhà thương mại / văn phòng",
+  "Dự án công nghiệp",
+  "Tư vấn kỹ thuật / Thẩm tra kết cấu",
+  "Khác",
+];
+---
+
+<section id="leadform" class="bg-ink-50 py-22">
+  <Container>
+    <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
+      <div data-aos="fade-up">
+        <span class="inline-block rounded-full bg-brand-pale px-3.5 py-1.5 text-xs font-semibold uppercase tracking-widest text-brand-light">Liên hệ ngay</span>
+        <h2 class="mt-3.5 text-balance text-[clamp(1.7rem,3.5vw,2.6rem)] font-bold leading-tight text-brand-darkest">Nhận tư vấn & báo giá nhanh</h2>
+        <p class="mt-3 max-w-md text-base leading-relaxed text-ink-600">
+          Chúng tôi sẽ liên hệ tư vấn nhanh chóng và đề xuất giải pháp phù hợp nhất cho công trình của bạn.
+        </p>
+
+        <div class="mt-7 flex flex-col gap-3.5">
+          {trustItems.map((t) => (
+            <div class="flex items-center gap-3 text-sm text-ink-600">
+              <Icon name="check-circle" class="h-5 w-5 shrink-0 text-brand-light" />
+              {t}
+            </div>
+          ))}
+          <div class="flex items-center gap-3 text-sm text-ink-600">
+            <Icon name="headset" class="h-5 w-5 shrink-0 text-brand-light" />
+            Tư vấn kỹ thuật: <a href="tel:0907523113" class="font-bold text-brand">0907 523 113</a>
+            <span class="text-xs text-ink-400">(Mr Hân)</span>
+          </div>
+          <div class="flex items-center gap-3 text-sm text-ink-600">
+            <Icon name="shopping-cart" class="h-5 w-5 shrink-0 text-brand-light" />
+            Đặt hàng & báo giá: <a href="tel:0976228311" class="font-bold text-brand">0976 228 311</a>
+            <span class="text-xs text-ink-400">(Ms Đoan)</span>
+          </div>
+        </div>
+      </div>
+
+      <div data-aos="fade-up" data-aos-delay="120" class="rounded-2xl border border-ink-200 bg-white p-9">
+        <h3 class="mb-6 flex items-center gap-2 text-xl font-bold text-brand-darkest">
+          <Icon name="envelope-open" class="h-5 w-5 text-brand" />
+          Gửi yêu cầu báo giá
+        </h3>
+
+        <form id="lead-form" class="flex flex-col gap-4.5">
+          <div>
+            <label for="lf-name" class="mb-1.5 block text-sm font-semibold text-ink-600">Họ và tên <span class="text-red-500">*</span></label>
+            <input id="lf-name" name="name" type="text" placeholder="Nguyễn Văn A" required class="w-full rounded-lg border-[1.5px] border-ink-200 bg-ink-50 px-4 py-3 text-sm text-ink-800 outline-none transition-colors placeholder:text-ink-400 focus:border-brand-light focus:bg-white focus:ring-3 focus:ring-brand-light/15" />
+          </div>
+          <div>
+            <label for="lf-phone" class="mb-1.5 block text-sm font-semibold text-ink-600">Số điện thoại <span class="text-red-500">*</span></label>
+            <input id="lf-phone" name="phone" type="tel" placeholder="0900 000 000" required class="w-full rounded-lg border-[1.5px] border-ink-200 bg-ink-50 px-4 py-3 text-sm text-ink-800 outline-none transition-colors placeholder:text-ink-400 focus:border-brand-light focus:bg-white focus:ring-3 focus:ring-brand-light/15" />
+          </div>
+          <div>
+            <label for="lf-type" class="mb-1.5 block text-sm font-semibold text-ink-600">Loại công trình / Nhu cầu</label>
+            <select id="lf-type" name="type" class="w-full rounded-lg border-[1.5px] border-ink-200 bg-ink-50 px-4 py-3 text-sm text-ink-800 outline-none transition-colors focus:border-brand-light focus:bg-white focus:ring-3 focus:ring-brand-light/15">
+              <option value="">-- Chọn loại công trình --</option>
+              {projectTypes.map((t) => <option>{t}</option>)}
+            </select>
+          </div>
+          <button type="submit" class="mt-1 flex w-full items-center justify-center gap-2 rounded-lg bg-orange px-6 py-4 text-base font-bold text-white transition-colors hover:bg-orange-dark">
+            <Icon name="paper-airplane" class="h-4.5 w-4.5" /> Nhận báo giá ngay
+          </button>
+        </form>
+        <p class="mt-3 flex items-center justify-center gap-1.5 text-center text-xs text-ink-400">
+          <Icon name="lock-closed" class="h-3.5 w-3.5 text-brand-light" /> Thông tin của bạn được bảo mật tuyệt đối
+        </p>
+      </div>
+    </div>
+  </Container>
+</section>
+
+<script>
+  const form = document.getElementById("lead-form");
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name = document.getElementById("lf-name")?.value.trim();
+    const phone = document.getElementById("lf-phone")?.value.trim();
+    const type = document.getElementById("lf-type")?.value;
+
+    if (!name || !phone) {
+      alert("Vui lòng điền đầy đủ Họ tên và Số điện thoại.");
+      return;
+    }
+
+    const msg = encodeURIComponent(
+      `Xin chào AAC79 PLUS! Tôi là ${name}, SĐT: ${phone}. Cần tư vấn & báo giá cho: ${type || "công trình của tôi"}`
+    );
+    window.open(`https://zalo.me/0976228311?message=${msg}`, "_blank");
+
+    form.innerHTML = `
+      <div class="py-8 text-center">
+        <p class="mb-4 text-5xl">✅</p>
+        <h4 class="mb-2 text-lg font-bold text-brand-darkest">Cảm ơn ${name}!</h4>
+        <p class="text-sm text-ink-600">Chúng tôi sẽ liên hệ lại trong thời gian sớm nhất.</p>
+        <a href="tel:0976228311" class="mt-5 inline-flex items-center gap-2 rounded-lg bg-brand px-6 py-3 text-sm font-bold text-white">
+          Gọi ngay: 0976 228 311
+        </a>
+      </div>`;
+  });
+</script>

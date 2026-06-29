@@ -1,0 +1,78 @@
+---
+import Container from "@/components/ui/Container.astro";
+import Button from "@/components/ui/Button.astro";
+import Icon from "@/components/ui/Icon.astro";
+
+const navLinks = [
+  { href: "#hero", label: "Trang chủ" },
+  { href: "#products", label: "Sản phẩm" },
+  { href: "#services", label: "Dịch vụ" },
+  { href: "#projects", label: "Dự án" },
+  { href: "#whyus", label: "Giới thiệu" },
+  { href: "#contact", label: "Liên hệ" },
+];
+---
+
+<header id="header" class="fixed inset-x-0 top-0 z-50 bg-transparent transition-colors duration-300" data-scrolled-class="bg-brand-darkest/95">
+  <Container>
+    <nav class="flex h-17 items-center justify-between">
+      <div class="flex items-center gap-8">
+        <a href="#hero" class="flex items-center gap-2.5">
+          <img src="/images/logo-aac79.png" alt="AAC79 PLUS" class="h-11 w-auto object-contain" />
+        </a>
+
+        <ul class="hidden items-center gap-1 lg:flex">
+          {navLinks.map((link) => (
+            <li>
+              <a href={link.href} class="rounded-md px-3 py-2 text-sm font-semibold text-white/85 transition-colors hover:bg-white/10 hover:text-white">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="flex items-center">
+        <Button href="#leadform" variant="orange" size="sm" class="hidden lg:inline-flex">
+          <Icon name="tag" class="h-4 w-4" />
+          Nhận báo giá nhanh
+        </Button>
+
+        <button id="hamburger" type="button" aria-label="Menu" class="flex flex-col gap-1.5 border-none bg-none p-1.5 lg:hidden">
+          <span class="block h-0.5 w-6 rounded-full bg-white"></span>
+          <span class="block h-0.5 w-6 rounded-full bg-white"></span>
+          <span class="block h-0.5 w-6 rounded-full bg-white"></span>
+        </button>
+      </div>
+    </nav>
+  </Container>
+
+  <nav id="mobile-nav" class="hidden border-t border-white/10 bg-brand-darkest px-5 py-5 lg:hidden">
+    {navLinks.map((link) => (
+      <a href={link.href} class="block border-b border-white/8 py-3 text-base font-semibold text-white/85">
+        {link.label}
+      </a>
+    ))}
+    <Button href="#leadform" variant="orange" size="sm" class="mt-4 w-full">
+      <Icon name="tag" class="h-4 w-4" />
+      Nhận báo giá nhanh
+    </Button>
+  </nav>
+</header>
+
+<script>
+  const header = document.getElementById("header");
+  const scrolledClasses = header?.dataset.scrolledClass.split(" ") ?? [];
+  window.addEventListener("scroll", () => {
+    const isScrolled = window.scrollY > 60;
+    header?.classList.toggle("bg-transparent", !isScrolled);
+    scrolledClasses.forEach((cls) => header?.classList.toggle(cls, isScrolled));
+  });
+
+  const hamburger = document.getElementById("hamburger");
+  const mobileNav = document.getElementById("mobile-nav");
+  hamburger?.addEventListener("click", () => mobileNav?.classList.toggle("hidden"));
+  mobileNav?.querySelectorAll("a").forEach((a) =>
+    a.addEventListener("click", () => mobileNav.classList.add("hidden"))
+  );
+</script>

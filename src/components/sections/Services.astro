@@ -1,0 +1,55 @@
+---
+import Container from "@/components/ui/Container.astro";
+import SectionIntro from "@/components/ui/SectionIntro.astro";
+import Icon from "@/components/ui/Icon.astro";
+
+const services = [
+  {
+    num: "01",
+    icon: "hardhat",
+    title: "Công trình dân dụng & công nghiệp",
+    items: ["Nhà ở, biệt thự, căn hộ cao tầng", "Khách sạn, resort, tòa nhà thương mại", "Nhà xưởng, kho bãi, khu công nghiệp"],
+  },
+  {
+    num: "02",
+    icon: "fire",
+    title: "Các hạng mục PCCC",
+    items: ["Tường ngăn cháy, bể nước ngầm", "Cầu thang thoát hiểm trong nhà và ngoài trời", "Hoàn chỉnh hồ sơ nghiệm thu PCCC"],
+  },
+  {
+    num: "03",
+    icon: "computer-desktop",
+    title: "Tư vấn kỹ thuật & Số hóa dự án",
+    items: ["Thẩm tra kết cấu công trình hiện hữu", "Quan trắc công trình bằng thiết bị hiện đại", "Số hóa dự án & Scan-to-BIM"],
+  },
+];
+---
+
+<section id="services" class="py-22">
+  <Container>
+    <SectionIntro
+      label="Dịch vụ"
+      title="Năng lực dịch vụ chuyên sâu"
+      description="Từ thi công đến tư vấn kỹ thuật, AAC79 PLUS là đối tác đồng hành toàn diện trong mọi giai đoạn dự án."
+    />
+
+    <div class="mt-11 grid grid-cols-1 gap-7 lg:grid-cols-3">
+      {services.map((s, i) => (
+        <div data-aos="fade-up" data-aos-delay={i * 100} class="relative overflow-hidden rounded-2xl border border-ink-200 bg-ink-50 p-9 transition-colors hover:bg-white hover:border-brand-light">
+          <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand to-brand-accent"></div>
+          <span class="absolute top-5 right-6 text-5xl font-bold leading-none text-brand-pale">{s.num}</span>
+          <Icon name={s.icon} class="mb-5 h-11 w-11 text-brand" />
+          <h3 class="mb-3.5 text-lg font-bold text-brand-darkest">{s.title}</h3>
+          <ul class="flex flex-col gap-2">
+            {s.items.map((item) => (
+              <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink-600">
+                <Icon name="check-circle" class="mt-0.5 h-4 w-4 shrink-0 text-brand-light" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </Container>
+</section>

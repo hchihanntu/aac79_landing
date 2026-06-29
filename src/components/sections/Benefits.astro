@@ -1,0 +1,38 @@
+---
+import Container from "@/components/ui/Container.astro";
+import Icon from "@/components/ui/Icon.astro";
+
+const benefits = [
+  { icon: "feather", title: "Trọng lượng siêu nhẹ", desc: "Chỉ ~500–700 kg/m³. Nhẹ hơn gạch truyền thống 3–5 lần. Giảm tải trọng móng & kết cấu." },
+  { icon: "thermometer", title: "Cách nhiệt cao", desc: "Hệ số dẫn nhiệt thấp ~0.12 W/mK. Tiết kiệm chi phí vận hành. Phù hợp mọi điều kiện thời tiết." },
+  { icon: "speaker-x-mark", title: "Cách âm tốt", desc: "Cấu trúc bọt khí hấp thụ âm. Giảm ồn hiệu quả. Tăng tiện nghi sử dụng." },
+  { icon: "fire", title: "Chống cháy", desc: "Chịu nhiệt lên đến ~1.800°C. Chống cháy 241 phút. Đạt tiêu chuẩn PCCC." },
+  { icon: "rocket-launch", title: "Thi công nhanh", desc: "Kích thước lớn, ít mạch xây. Nhanh gấp 2 đến 3 lần. Tiết kiệm nhân công." },
+  { icon: "adjustments-horizontal", title: "Độ chính xác cao", desc: "Sai số ±3mm. Bề mặt phẳng, không cần tô trát. Giảm chi phí hoàn thiện." },
+  { icon: "leaf", title: "Thân thiện môi trường", desc: "Không độc hại, không phóng xạ. Tái chế và giảm phát thải." },
+];
+---
+
+<section id="benefits" class="relative overflow-hidden bg-gradient-to-b from-brand-darkest to-[#0f2d19] py-22">
+  <Container class="relative">
+    <div data-aos="fade-up" class="mx-auto max-w-2xl text-center">
+      <span class="inline-block rounded-full bg-brand-accent/15 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-widest text-brand-accent">Vì sao chọn E-Block/ E-Panel AAC</span>
+      <h2 class="mt-3.5 text-balance text-[clamp(1.7rem,3.5vw,2.6rem)] font-bold leading-tight text-white">Vật liệu xanh – hiệu quả vượt trội</h2>
+      <p class="mt-3 text-base leading-relaxed text-white/70">Bê tông khí chưng áp AAC được công nhận là vật liệu xanh VGBC.</p>
+    </div>
+
+    <div class="mt-11 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {benefits.map((b, i) => (
+        <div
+          data-aos="fade-up"
+          data-aos-delay={(i % 4) * 80}
+          class={`rounded-xl border border-white/10 bg-white/6 p-7 text-center transition-colors hover:border-brand-accent/40 hover:bg-brand-accent/12 ${i === 6 ? "sm:col-span-2 lg:col-span-1" : ""}`}
+        >
+          <Icon name={b.icon} class="mx-auto mb-4 h-10 w-10 text-brand-accent" />
+          <h4 class="mb-2 text-sm font-bold text-white">{b.title}</h4>
+          <p class="text-[0.82rem] leading-relaxed text-white/60">{b.desc}</p>
+        </div>
+      ))}
+    </div>
+  </Container>
+</section>

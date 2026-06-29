@@ -1,0 +1,60 @@
+@import "tailwindcss";
+@import "aos/dist/aos.css";
+
+@theme {
+  /* Bảng màu giữ nguyên theo bản gốc (xanh AAC79 + cam CTA) */
+  --color-brand-darkest: #1a4a2e;
+  --color-brand-dark: #153c26;
+  --color-brand: #2d6a42;
+  --color-brand-light: #3d8a57;
+  --color-brand-accent: #4caf6e;
+  --color-brand-vivid: #2fbf71;
+  --color-brand-pale: #e8f5ed;
+
+  --color-orange: #f97316;
+  --color-orange-dark: #ea650c;
+
+  --color-ink-50: #f8faf9;
+  --color-ink-100: #f0f4f2;
+  --color-ink-200: #dce6e0;
+  --color-ink-400: #8fa89a;
+  --color-ink-600: #4a5c53;
+  --color-ink-800: #1e2b25;
+
+  --font-sans: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #fff;
+  color: var(--color-ink-800);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.icon-svg svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Hiệu ứng ping phẳng cho nút gọi nổi (không dùng box-shadow) */
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.6; }
+  70% { transform: scale(1.18); opacity: 0; }
+  100% { opacity: 0; }
+}
+.animate-pulse-ring::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: inherit;
+  z-index: -1;
+  animation: pulse-ring 2s ease infinite;
+}

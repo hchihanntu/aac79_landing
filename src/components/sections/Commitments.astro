@@ -1,0 +1,35 @@
+---
+import Container from "@/components/ui/Container.astro";
+import SectionIntro from "@/components/ui/SectionIntro.astro";
+import Icon from "@/components/ui/Icon.astro";
+
+const commitments = [
+  { icon: "check-badge", title: "Vật liệu chất lượng", desc: "Nguồn gốc rõ ràng, đạt chuẩn TCVN & quốc tế" },
+  { icon: "tag", title: "Giá cả tốt nhất", desc: "Báo giá minh bạch, cạnh tranh, không phát sinh" },
+  { icon: "truck", title: "Giao hàng nhanh gọn", desc: "Giao đúng hạn, đúng địa điểm, trên toàn khu vực" },
+  { icon: "chat-bubble", title: "Tư vấn tận tâm", desc: "Hỗ trợ kỹ thuật 24/7 trong suốt quá trình dự án" },
+  { icon: "shield-check", title: "Bảo hành dài hạn", desc: "Chính sách bảo hành rõ ràng, xử lý nhanh chóng" },
+  { icon: "document-text", title: "Hóa đơn đầy đủ", desc: "Xuất hóa đơn VAT đầy đủ, hợp lệ cho mọi đơn hàng" },
+  { icon: "handshake", title: "Nhân viên thân thiện", desc: "Đội ngũ chuyên nghiệp, tận tình và luôn sẵn sàng hỗ trợ" },
+];
+---
+
+<section id="commitments" class="py-22">
+  <Container>
+    <SectionIntro
+      label="Cam kết"
+      title="7 cam kết của AAC79 PLUS"
+      description="Chúng tôi cam kết mang đến trải nghiệm hợp tác tốt nhất – từ sản phẩm đến dịch vụ sau bán hàng."
+    />
+
+    <div class="mt-11 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-7">
+      {commitments.map((c, i) => (
+        <div data-aos="fade-up" data-aos-delay={(i % 7) * 60} class="group rounded-xl bg-brand-pale p-6 text-center transition-colors hover:bg-brand">
+          <Icon name={c.icon} class="mx-auto mb-4 h-10 w-10 text-brand transition-colors group-hover:text-white" />
+          <h4 class="mb-1.5 text-sm font-bold text-brand-darkest transition-colors group-hover:text-white">{c.title}</h4>
+          <p class="text-xs leading-relaxed text-ink-600 transition-colors group-hover:text-white/85">{c.desc}</p>
+        </div>
+      ))}
+    </div>
+  </Container>
+</section>

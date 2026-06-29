@@ -1,0 +1,69 @@
+---
+import Container from "@/components/ui/Container.astro";
+import Icon from "@/components/ui/Icon.astro";
+
+const year = new Date().getFullYear();
+
+const quickLinks = [
+  { href: "#hero", label: "Trang chủ" },
+  { href: "#products", label: "Sản phẩm" },
+  { href: "#services", label: "Dịch vụ" },
+  { href: "#projects", label: "Dự án" },
+  { href: "#commitments", label: "Cam kết" },
+  { href: "#whyus", label: "Giới thiệu" },
+];
+
+const productLinks = ["Gạch E-Block", "Tấm E-Panel", "Sàn E-Floor", "Vữa & keo AAC"];
+---
+
+<footer id="footer" class="bg-ink-800 pt-16">
+  <Container>
+    <div class="grid grid-cols-1 gap-10 border-b border-white/8 pb-12 sm:grid-cols-2 lg:grid-cols-12">
+      <div class="lg:col-span-5">
+        <a href="#hero">
+          <img src="/images/logo-aac79.png" alt="AAC79 PLUS" class="h-10 w-auto object-contain brightness-0 invert" />
+        </a>
+        <p class="mt-4 max-w-sm text-sm leading-relaxed text-white/55">
+          Chuyên phân phối và thi công bê tông khí chưng áp (AAC) tại Khánh Hòa và khu vực Nam Trung Bộ. Giải pháp trọn gói – chất lượng tốt – đáng tin cậy.
+        </p>
+        <span class="mt-4 inline-block rounded-full border border-brand-accent/30 px-3 py-1 text-xs font-bold uppercase tracking-widest text-brand-accent">
+          Green &amp; Lean Construction
+        </span>
+      </div>
+
+      <div class="lg:col-span-2">
+        <h5 class="mb-4 text-sm font-semibold uppercase tracking-widest text-white/90">Menu nhanh</h5>
+        <ul class="flex flex-col gap-2">
+          {quickLinks.map((l) => (
+            <li><a href={l.href} class="text-sm text-white/50 transition-colors hover:text-brand-accent">{l.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="lg:col-span-2">
+        <h5 class="mb-4 text-sm font-semibold uppercase tracking-widest text-white/90">Sản phẩm</h5>
+        <ul class="flex flex-col gap-2">
+          {productLinks.map((l) => (
+            <li><a href="#products" class="text-sm text-white/50 transition-colors hover:text-brand-accent">{l}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="lg:col-span-3">
+        <h5 class="mb-4 text-sm font-semibold uppercase tracking-widest text-white/90">Liên hệ</h5>
+        <div class="flex flex-col gap-2.5 text-sm text-white/50">
+          <p class="flex items-start gap-2"><Icon name="headset" class="mt-0.5 h-4 w-4 shrink-0 text-brand-accent" />Tư vấn KT: <a href="tel:0907523113" class="text-white/70 hover:text-brand-accent">0907 523 113</a> (Mr Hân)</p>
+          <p class="flex items-start gap-2"><Icon name="shopping-cart" class="mt-0.5 h-4 w-4 shrink-0 text-brand-accent" />Đặt hàng: <a href="tel:0976228311" class="text-white/70 hover:text-brand-accent">0976 228 311</a> (Ms Đoan)</p>
+          <p class="flex items-start gap-2"><Icon name="envelope" class="mt-0.5 h-4 w-4 shrink-0 text-brand-accent" /><a href="mailto:aac79plus@gmail.com" class="text-white/70 hover:text-brand-accent">aac79plus@gmail.com</a></p>
+          <p class="flex items-start gap-2"><Icon name="globe-alt" class="mt-0.5 h-4 w-4 shrink-0 text-brand-accent" /><a href="https://aac79.com.vn" target="_blank" class="text-white/70 hover:text-brand-accent">aac79.com.vn</a></p>
+          <p class="flex items-start gap-2"><Icon name="map-pin" class="mt-0.5 h-4 w-4 shrink-0 text-brand-accent" />Lô 20, đường 18A, KĐT Lê Hồng Phong II, Nha Trang</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col items-center justify-between gap-3 py-6 sm:flex-row">
+      <p class="text-sm text-white/35">© {year} <a href="#hero" class="hover:text-brand-accent">Công ty TNHH AAC79 PLUS</a>. Bảo lưu mọi quyền.</p>
+      <p class="text-sm text-white/35">Thiết kế bởi AAC79 PLUS · <a href="#leadform" class="text-brand-accent hover:underline">Liên hệ ngay</a></p>
+    </div>
+  </Container>
+</footer>
