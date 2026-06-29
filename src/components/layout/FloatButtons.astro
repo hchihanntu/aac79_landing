@@ -2,22 +2,38 @@
 import Icon from "@/components/ui/Icon.astro";
 ---
 
-<div class="fixed right-5 bottom-7 z-[60] flex flex-col items-end gap-3">
+<div id="float-buttons" class="pointer-events-none fixed inset-x-3 bottom-3 z-[60] grid translate-y-5 grid-cols-1 gap-2 rounded-2xl border border-white/15 bg-ink-800/90 p-2 opacity-0 shadow-soft backdrop-blur transition-all duration-300 sm:right-5 sm:left-auto sm:w-auto sm:min-w-120 sm:grid-cols-2">
   <a
     href="https://zalo.me/0976228311"
     target="_blank"
     title="Zalo đặt hàng – Ms Đoan: 0976 228 311"
-    class="flex items-center gap-2.5 rounded-full bg-[#0068ff] px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-[#0052cc]"
+    class="flex items-center justify-center gap-2.5 rounded-xl bg-[#0068ff] px-4 py-3 text-center text-sm font-bold text-white transition-colors hover:bg-[#0052cc]"
   >
     <Icon name="chat-bubble" class="h-5 w-5" />
-    <span class="hidden sm:inline">Đặt hàng qua Zalo</span>
+    <span>Đặt hàng qua Zalo</span>
   </a>
   <a
     href="tel:0976228311"
     title="Gọi đặt hàng – Ms Đoan: 0976 228 311"
-    class="relative flex items-center gap-2.5 rounded-full bg-brand px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-brand-darkest animate-pulse-ring"
+    class="relative flex items-center justify-center gap-2.5 rounded-xl bg-brand px-4 py-3 text-center text-sm font-bold text-white transition-colors hover:bg-brand-darkest animate-pulse-ring"
   >
     <Icon name="phone" class="h-5 w-5" />
-    <span class="hidden sm:inline">Đặt hàng: 0976 228 311</span>
+    <span>Đặt hàng: 0976 228 311</span>
   </a>
 </div>
+
+<script>
+  const floatButtons = document.getElementById("float-buttons");
+
+  const toggleFloatButtons = () => {
+    const isVisible = window.scrollY > 160;
+    floatButtons?.classList.toggle("opacity-0", !isVisible);
+    floatButtons?.classList.toggle("translate-y-5", !isVisible);
+    floatButtons?.classList.toggle("pointer-events-none", !isVisible);
+    floatButtons?.classList.toggle("opacity-100", isVisible);
+    floatButtons?.classList.toggle("translate-y-0", isVisible);
+  };
+
+  toggleFloatButtons();
+  window.addEventListener("scroll", toggleFloatButtons, { passive: true });
+</script>

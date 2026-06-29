@@ -28,14 +28,16 @@ const products = [
     desc: "Vữa xây, keo dán và vữa chuyên dụng cho AAC – đảm bảo liên kết chắc, thi công đúng kỹ thuật.",
   },
 ];
+
+const { page = false } = Astro.props;
 ---
 
 <section id="products" class="bg-ink-50 py-22">
   <Container>
     <SectionIntro
-      label="Sản phẩm"
-      title="Sản phẩm & giải pháp chủ lực"
-      description="Hệ thống vật liệu AAC đồng bộ, đáp ứng mọi yêu cầu thi công từ tường, sàn đến hoàn thiện."
+      align={page ? "left" : "center"}
+      title="Sản phẩm chủ lực AAC79 PLUS"
+      description="Đầy đủ giải pháp vật liệu cho tường, sàn và hoàn thiện."
     />
 
     <div class="mt-11 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -48,7 +50,7 @@ const products = [
             <div class="mb-1.5 text-xs font-bold uppercase tracking-widest text-brand-light">{p.tag}</div>
             <h3 class="mb-2 text-lg font-bold text-brand-darkest">{p.title}</h3>
             <p class="mb-4 text-sm leading-relaxed text-ink-600">{p.desc}</p>
-            <a href="#leadform" class="inline-flex items-center gap-2 rounded-lg border-2 border-brand px-5 py-2.5 text-sm font-bold text-brand transition-colors hover:bg-brand hover:text-white">
+            <a href="/#leadform" class="inline-flex items-center gap-2 rounded-lg border-2 border-brand px-5 py-2.5 text-sm font-bold text-brand transition-colors hover:bg-brand hover:text-white">
               Xem chi tiết & báo giá
             </a>
           </div>

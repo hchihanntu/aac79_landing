@@ -3,10 +3,9 @@ import Container from "@/components/ui/Container.astro";
 import Icon from "@/components/ui/Icon.astro";
 
 const trustItems = [
-  "Phản hồi trong vòng 30 phút",
-  "Tư vấn kỹ thuật hoàn toàn miễn phí",
-  "Báo giá rõ ràng, không phát sinh chi phí ẩn",
-  "Đội ngũ kỹ sư kinh nghiệm, tận tâm hỗ trợ",
+  "Miễn phí tư vấn kỹ thuật ban đầu",
+  "Báo giá minh bạch theo khối lượng thực tế",
+  "Hỗ trợ vật liệu + thi công đồng bộ",
 ];
 
 const projectTypes = [
@@ -24,10 +23,9 @@ const projectTypes = [
   <Container>
     <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
       <div data-aos="fade-up">
-        <span class="inline-block rounded-full bg-brand-pale px-3.5 py-1.5 text-xs font-semibold uppercase tracking-widest text-brand-light">Liên hệ ngay</span>
-        <h2 class="mt-3.5 text-balance text-[clamp(1.7rem,3.5vw,2.6rem)] font-bold leading-tight text-brand-darkest">Nhận tư vấn & báo giá nhanh</h2>
+        <h2 class="text-balance text-[clamp(1.7rem,3.5vw,2.6rem)] font-bold leading-tight text-brand-darkest">Nhận báo giá trong 30 phút</h2>
         <p class="mt-3 max-w-md text-base leading-relaxed text-ink-600">
-          Chúng tôi sẽ liên hệ tư vấn nhanh chóng và đề xuất giải pháp phù hợp nhất cho công trình của bạn.
+          Để lại thông tin, đội ngũ AAC79 PLUS sẽ gọi lại tư vấn giải pháp phù hợp và báo giá rõ ràng.
         </p>
 
         <div class="mt-7 flex flex-col gap-3.5">
@@ -37,22 +35,22 @@ const projectTypes = [
               {t}
             </div>
           ))}
-          <div class="flex items-center gap-3 text-sm text-ink-600">
-            <Icon name="headset" class="h-5 w-5 shrink-0 text-brand-light" />
-            Tư vấn kỹ thuật: <a href="tel:0907523113" class="font-bold text-brand">0907 523 113</a>
-            <span class="text-xs text-ink-400">(Mr Hân)</span>
-          </div>
-          <div class="flex items-center gap-3 text-sm text-ink-600">
-            <Icon name="shopping-cart" class="h-5 w-5 shrink-0 text-brand-light" />
-            Đặt hàng & báo giá: <a href="tel:0976228311" class="font-bold text-brand">0976 228 311</a>
-            <span class="text-xs text-ink-400">(Ms Đoan)</span>
+          <div class="mt-2 flex flex-col items-start gap-3">
+            <a href="tel:0907523113" class="inline-flex items-center justify-start gap-3 rounded-lg bg-white px-5 py-4 text-base font-bold text-brand-darkest ring-1 ring-ink-200 transition-colors hover:bg-brand-pale">
+              <Icon name="headset" class="h-6 w-6" />
+              Tư vấn: 0907 523 113 (Mr Hân)
+            </a>
+            <a href="https://zalo.me/0976228311" target="_blank" class="inline-flex items-center justify-start gap-3 rounded-lg bg-white px-5 py-4 text-base font-bold text-brand-darkest ring-1 ring-ink-200 transition-colors hover:bg-brand-pale">
+              <Icon name="shopping-cart" class="h-6 w-6" />
+              Đặt hàng: 0976 228 311 (Ms Đoan)
+            </a>
           </div>
         </div>
       </div>
 
       <div data-aos="fade-up" data-aos-delay="120" class="rounded-2xl border border-ink-200 bg-white p-9">
-        <h3 class="mb-6 flex items-center gap-2 text-xl font-bold text-brand-darkest">
-          <Icon name="envelope-open" class="h-5 w-5 text-brand" />
+        <h3 class="mb-6 flex flex-col items-start gap-3 text-xl font-bold text-brand-darkest">
+          <Icon name="envelope-open" class="h-10 w-10 text-brand" />
           Gửi yêu cầu báo giá
         </h3>
 

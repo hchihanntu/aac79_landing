@@ -2,13 +2,14 @@
 import Header from "@/components/layout/Header.astro";
 import Footer from "@/components/layout/Footer.astro";
 import FloatButtons from "@/components/layout/FloatButtons.astro";
-import PriceModal from "@/components/layout/PriceModal.astro";
 import "@/styles/global.css";
 
 const {
   title = "AAC79 PLUS – Đại lý phân phối chính thức Bê Tông Khí Tân Kỷ Nguyên Tại Khánh Hòa",
   description = "AAC79 PLUS chuyên phân phối và thi công bê tông khí chưng áp (AAC/EBlock) tại Khánh Hòa và Nam Trung Bộ. Giải pháp trọn gói – Green & Lean Construction.",
 } = Astro.props;
+
+const isHome = Astro.url.pathname === "/";
 ---
 
 <!doctype html>
@@ -28,13 +29,12 @@ const {
     />
   </head>
   <body class="overflow-x-hidden antialiased">
-    <Header />
+    <Header transparentOnTop={isHome} />
     <main>
       <slot />
     </main>
     <Footer />
     <FloatButtons />
-    <PriceModal />
     <script src="@/lib/aos.js"></script>
   </body>
 </html>

@@ -6,7 +6,7 @@ const alignClasses = align === "center" ? "mx-auto text-center" : "text-left";
 
 <div data-aos="fade-up" class={`max-w-2xl ${alignClasses} ${className}`}>
   {label && (
-    <span class={`inline-block rounded-full px-3.5 py-1.5 text-xs font-semibold uppercase tracking-widest ${dark ? "bg-brand-accent/15 text-brand-accent" : "bg-brand-pale text-brand-light"}`}>
+    <span class={`block text-sm font-bold uppercase tracking-[0.18em] ${dark ? "text-brand-accent" : "text-brand"}`}>
       {label}
     </span>
   )}

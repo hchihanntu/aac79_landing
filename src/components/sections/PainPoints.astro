@@ -4,16 +4,16 @@ import SectionIntro from "@/components/ui/SectionIntro.astro";
 import Icon from "@/components/ui/Icon.astro";
 
 const pains = [
-  { icon: "scale", title: "Tường nặng", desc: "Tăng chi phí kết cấu, dễ lún nứt." },
-  { icon: "clock", title: "Thi công chậm", desc: "Tốn công, chậm tiến độ." },
-  { icon: "thermometer", title: "Cách nhiệt – cách âm kém", desc: "Nhà nóng, ồn, tốn điện điều hòa và giảm tiện nghi." },
-  { icon: "exclamation-circle", title: "Khó kiểm soát", desc: "Chất lượng không đồng đều, chi phí tăng." },
+  { icon: "scale", title: "Tường nặng, tăng tải trọng", desc: "Tăng chi phí móng và kết cấu, khó tối ưu ngân sách tổng thể." },
+  { icon: "clock", title: "Thi công chậm", desc: "Mất thời gian, tốn nhân công, dễ trễ tiến độ bàn giao." },
+  { icon: "thermometer", title: "Cách nhiệt kém", desc: "Không gian nóng, chi phí điện vận hành tăng cao." },
+  { icon: "exclamation-circle", title: "Thiếu đồng bộ vật liệu", desc: "Khó kiểm soát chất lượng khi mua từ nhiều nguồn khác nhau." },
 ];
 ---
 
 <section id="pain" class="bg-ink-50 py-22">
   <Container>
-    <SectionIntro align="left" label="Vấn đề thực tế" title="Công trình của bạn đang gặp vấn đề gì?" />
+    <SectionIntro align="left" title="Công trình của bạn đang gặp vấn đề gì?" />
 
     <div class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
       {pains.map((p, i) => (
@@ -25,10 +25,10 @@ const pains = [
       ))}
     </div>
 
-    <div data-aos="fade-up" class="mt-10 flex flex-col items-center gap-5 rounded-2xl bg-gradient-to-br from-brand to-brand-darkest px-9 py-8 text-center text-white sm:flex-row sm:text-left">
+    <div data-aos="fade-up" class="mt-10 flex flex-col items-center gap-5 rounded-2xl bg-brand-darkest/92 px-9 py-8 text-center text-white sm:flex-row sm:text-left">
       <Icon name="arrow-right" class="h-11 w-11 shrink-0 text-brand-accent" />
-      <p class="text-lg leading-relaxed">
-        <strong class="text-brand-accent">AAC79 PLUS giải quyết tất cả những vấn đề trên</strong> – Từ vật liệu AAC đến thi công và tư vấn kỹ thuật – đồng bộ, nhanh, hiệu quả.
+      <p class="text-lg font-medium leading-relaxed text-white/72">
+        <strong class="font-bold text-brand-accent">AAC79 PLUS cung cấp giải pháp đồng bộ</strong> từ vật liệu đến thi công và tư vấn kỹ thuật, giúp tối ưu tiến độ, chất lượng và chi phí.
       </p>
     </div>
   </Container>

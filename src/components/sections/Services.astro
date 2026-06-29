@@ -23,12 +23,14 @@ const services = [
     items: ["Thẩm tra kết cấu công trình hiện hữu", "Quan trắc công trình bằng thiết bị hiện đại", "Số hóa dự án & Scan-to-BIM"],
   },
 ];
+
+const { page = false } = Astro.props;
 ---
 
 <section id="services" class="py-22">
   <Container>
     <SectionIntro
-      label="Dịch vụ"
+      align={page ? "left" : "center"}
       title="Năng lực dịch vụ chuyên sâu"
       description="Từ thi công đến tư vấn kỹ thuật, AAC79 PLUS là đối tác đồng hành toàn diện trong mọi giai đoạn dự án."
     />

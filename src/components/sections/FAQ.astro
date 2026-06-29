@@ -1,0 +1,93 @@
+---
+import Container from "@/components/ui/Container.astro";
+import Icon from "@/components/ui/Icon.astro";
+
+const faqs = [
+  {
+    question: "Báo giá có phát sinh không?",
+    answer: "Báo giá minh bạch theo khối lượng, vị trí và tiến độ; mọi phát sinh (nếu có) sẽ thông báo trước.",
+  },
+  {
+    question: "Giao hàng trong bao lâu?",
+    answer: "Thường trong ngày hoặc 24-48h tại Khánh Hòa, tùy khối lượng và lịch xe.",
+  },
+  {
+    question: "AAC có phù hợp nhà dân không?",
+    answer: "Rất phù hợp cho nhà dân, khách sạn, nhà xưởng nhờ nhẹ, cách nhiệt và thi công nhanh.",
+  },
+  {
+    question: "Có hỗ trợ kỹ thuật tại công trình không?",
+    answer: "Có. Kỹ sư AAC79 PLUS hỗ trợ từ chọn vật liệu đến triển khai thi công đúng chuẩn.",
+  },
+];
+---
+
+<section id="faq" class="py-22">
+  <Container>
+    <div data-aos="fade-up" class="max-w-2xl">
+      <h2 class="text-balance text-[clamp(1.7rem,3.5vw,2.6rem)] font-bold leading-tight text-brand-darkest">
+        Câu hỏi thường gặp
+      </h2>
+    </div>
+
+    <div class="mt-9 flex w-full flex-col gap-3">
+      {faqs.map((faq, i) => (
+        <div data-aos="fade-up" data-aos-delay={i * 70} class="faq-toggle rounded-2xl border border-ink-200 bg-white transition-colors duration-300">
+          <button type="button" class="faq-trigger flex w-full cursor-pointer items-center justify-between gap-4 px-5 py-4 text-left text-base font-bold text-brand-darkest" aria-expanded="false">
+            <span class="flex items-center gap-3">
+              <Icon name="chat-bubble" class="h-5 w-5 text-brand" />
+              {faq.question}
+            </span>
+            <span class="shrink-0 text-brand">
+              <Icon name="chevron-right" class="faq-icon-closed h-5 w-5" />
+              <Icon name="chevron-down" class="faq-icon-open h-5 w-5" />
+            </span>
+          </button>
+          <div class="faq-answer max-h-0 overflow-hidden border-t border-transparent px-5 pl-13 opacity-0 transition-[max-height,opacity,border-color] duration-300 ease-out">
+            <p class="py-4 text-sm leading-relaxed text-ink-600">{faq.answer}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </Container>
+</section>
+
+<style>
+  .faq-toggle.is-open {
+    border-color: var(--color-brand-light, #4caf6e);
+    box-shadow: 0 20px 50px rgb(15 45 25 / 0.08);
+  }
+
+  .faq-toggle.is-open .faq-answer {
+    border-top-color: var(--color-ink-200, #e5e7eb);
+    opacity: 1;
+  }
+
+  :global(.faq-icon-open) {
+    display: none;
+  }
+
+  .faq-toggle.is-open :global(.faq-icon-open) {
+    display: inline-flex;
+  }
+
+  .faq-toggle.is-open :global(.faq-icon-closed) {
+    display: none;
+  }
+</style>
+
+<script>
+  document.querySelectorAll(".faq-toggle").forEach((item) => {
+    const trigger = item.querySelector(".faq-trigger");
+    const answer = item.querySelector(".faq-answer");
+
+    trigger?.addEventListener("click", () => {
+      const isOpen = item.classList.toggle("is-open");
+      trigger.setAttribute("aria-expanded", String(isOpen));
+
+      if (answer instanceof HTMLElement) {
+        answer.style.maxHeight = isOpen ? `${answer.scrollHeight}px` : "0px";
+      }
+    });
+  });
+</script>

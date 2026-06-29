@@ -1,7 +1,6 @@
 ---
 import Container from "@/components/ui/Container.astro";
 import SectionIntro from "@/components/ui/SectionIntro.astro";
-import Icon from "@/components/ui/Icon.astro";
 
 const projects = [
   { img: "project-the-summer.jpg", title: "Khách sạn The Summer", place: "Nha Trang, Khánh Hòa" },
@@ -11,18 +10,19 @@ const projects = [
   { img: "project-navy.jpg", title: "Khách sạn Navy", place: "Nha Trang, Khánh Hòa" },
   { img: "project-nha-kho-vat-lieu.jpg", title: "Nhà xưởng công nghiệp", place: "KCN Suối Dầu" },
 ];
+
+const { page = false } = Astro.props;
 ---
 
 <section id="projects" class="bg-ink-50 py-22">
   <Container>
     <SectionIntro
-      label="Dự án tiêu biểu"
+      align={page ? "left" : "center"}
       title="Công trình thực tế của AAC79 PLUS"
       description="Hàng trăm công trình dân dụng và công nghiệp đã được hoàn thiện với vật liệu AAC và sự đồng hành của đội ngũ AAC79 PLUS."
     />
 
-    <div data-aos="zoom-in" class="mx-auto mt-11 max-w-3xl overflow-hidden rounded-2xl border border-ink-200 bg-brand-darkest">
-      <div class="bg-brand-accent/10 py-3.5 text-center text-sm font-bold uppercase tracking-wider text-brand">📹 Video dự án thực tế</div>
+    <div data-aos="zoom-in" class={`mt-11 max-w-3xl overflow-hidden rounded-2xl border border-ink-200 bg-brand-darkest ${page ? "" : "mx-auto"}`}>
       <div class="aspect-video w-full">
         <iframe
           class="h-full w-full"
@@ -46,12 +46,6 @@ const projects = [
           </div>
         </div>
       ))}
-    </div>
-
-    <div class="mt-9 text-center">
-      <a href="#leadform" class="inline-flex items-center gap-2 rounded-lg bg-brand px-6 py-3.5 text-sm font-bold text-white transition-colors hover:bg-brand-darkest">
-        <Icon name="photo" class="h-4 w-4" /> Xem thêm dự án
-      </a>
     </div>
   </Container>
 </section>

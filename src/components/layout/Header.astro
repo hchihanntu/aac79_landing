@@ -3,39 +3,77 @@ import Container from "@/components/ui/Container.astro";
 import Button from "@/components/ui/Button.astro";
 import Icon from "@/components/ui/Icon.astro";
 
-const navLinks = [
-  { href: "#hero", label: "Trang chủ" },
-  { href: "#products", label: "Sản phẩm" },
-  { href: "#services", label: "Dịch vụ" },
-  { href: "#projects", label: "Dự án" },
-  { href: "#whyus", label: "Giới thiệu" },
-  { href: "#contact", label: "Liên hệ" },
+const navItems = [
+  { href: "/#hero", label: "Trang chủ" },
+  { href: "/kiem-dinh-cong-trinh/", label: "Dịch vụ kiểm định công trình" },
+  {
+    href: "/#hero",
+    label: "AAC79 PLUS",
+    children: [
+      { href: "/bang-gia/", label: "Báo giá" },
+      { href: "/#solution", label: "Giải pháp" },
+      { href: "/#benefits", label: "Lợi ích" },
+      { href: "/#products", label: "Sản phẩm" },
+      { href: "/#services", label: "Dịch vụ thi công" },
+      { href: "/ho-so-nang-luc/", label: "Hồ sơ năng lực" },
+    ],
+  },
+  {
+    href: "/kiem-dinh-cong-trinh/",
+    label: "AAC79 PROTECH",
+    children: [
+      { href: "/kiem-dinh-cong-trinh/#dich-vu", label: "Các dịch vụ" },
+      { href: "/kiem-dinh-cong-trinh/#kiem-dinh-dan-dung", label: "Kiểm định dân dụng" },
+      { href: "/kiem-dinh-cong-trinh/#kiem-dinh-ha-tang", label: "Kiểm định hạ tầng" },
+      { href: "/kiem-dinh-cong-trinh/#kiem-dinh-nha-xuong", label: "Kiểm định nhà xưởng" },
+      { href: "/ho-so-nang-luc/", label: "Hồ sơ năng lực" },
+    ],
+  },
 ];
+
+const { transparentOnTop = false } = Astro.props;
 ---
 
-<header id="header" class="fixed inset-x-0 top-0 z-50 bg-transparent transition-colors duration-300" data-scrolled-class="bg-brand-darkest/95">
+<header
+  id="header"
+  class={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${transparentOnTop ? "bg-transparent" : "bg-brand-darkest/95"}`}
+  data-transparent-on-top={transparentOnTop ? "true" : "false"}
+  data-scrolled-class="bg-brand-darkest/95"
+>
   <Container>
     <nav class="flex h-17 items-center justify-between">
       <div class="flex items-center gap-8">
-        <a href="#hero" class="flex items-center gap-2.5">
+        <a href="/" class="flex items-center gap-2.5">
           <img src="/images/logo-aac79.png" alt="AAC79 PLUS" class="h-11 w-auto object-contain" />
         </a>
 
         <ul class="hidden items-center gap-1 lg:flex">
-          {navLinks.map((link) => (
-            <li>
-              <a href={link.href} class="rounded-md px-3 py-2 text-sm font-semibold text-white/85 transition-colors hover:bg-white/10 hover:text-white">
-                {link.label}
+          {navItems.map((item) => (
+            <li class:list={["relative", item.children && "group"]}>
+              <a href={item.href} class="flex items-center gap-1.5 rounded-md px-3 py-2 text-sm font-semibold text-white/85 transition-colors hover:bg-white/10 hover:text-white group-hover:bg-white/10 group-hover:text-white">
+                {item.label}
+                {item.children && <Icon name="chevron-down" class="h-4 w-4 transition-transform group-hover:rotate-180" />}
               </a>
+              {item.children && (
+                <div class="invisible absolute left-0 top-full min-w-64 translate-y-2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                  <div class="overflow-hidden rounded-xl border border-white/10 bg-brand-darkest/98 p-2 shadow-2xl shadow-black/25 backdrop-blur-md">
+                    {item.children.map((child) => (
+                      <a href={child.href} class="block rounded-lg px-4 py-2.5 text-sm font-semibold text-white/78 transition-colors hover:bg-white/10 hover:text-white">
+                        {child.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
             </li>
           ))}
         </ul>
       </div>
 
       <div class="flex items-center">
-        <Button href="#leadform" variant="orange" size="sm" class="hidden lg:inline-flex">
+        <Button href="/#leadform" variant="orange" size="sm" class="hidden lg:inline-flex">
           <Icon name="tag" class="h-4 w-4" />
-          Nhận báo giá nhanh
+          Nhận báo giá ngay
         </Button>
 
         <button id="hamburger" type="button" aria-label="Menu" class="flex flex-col gap-1.5 border-none bg-none p-1.5 lg:hidden">
@@ -48,14 +86,25 @@ const navLinks = [
   </Container>
 
   <nav id="mobile-nav" class="hidden border-t border-white/10 bg-brand-darkest px-5 py-5 lg:hidden">
-    {navLinks.map((link) => (
-      <a href={link.href} class="block border-b border-white/8 py-3 text-base font-semibold text-white/85">
-        {link.label}
-      </a>
+    {navItems.map((item) => (
+      <div class="border-b border-white/8 py-3">
+        <a href={item.href} class="block text-base font-semibold text-white/85">
+          {item.label}
+        </a>
+        {item.children && (
+          <div class="mt-2 grid gap-1 pl-3">
+            {item.children.map((child) => (
+              <a href={child.href} class="block py-1.5 text-sm font-medium text-white/60">
+                {child.label}
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
     ))}
-    <Button href="#leadform" variant="orange" size="sm" class="mt-4 w-full">
+    <Button href="/#leadform" variant="orange" size="sm" class="mt-4 w-full">
       <Icon name="tag" class="h-4 w-4" />
-      Nhận báo giá nhanh
+      Nhận báo giá ngay
     </Button>
   </nav>
 </header>
@@ -63,7 +112,11 @@ const navLinks = [
 <script>
   const header = document.getElementById("header");
   const scrolledClasses = header?.dataset.scrolledClass.split(" ") ?? [];
+  const transparentOnTop = header?.dataset.transparentOnTop === "true";
+
   window.addEventListener("scroll", () => {
+    if (!transparentOnTop) return;
+
     const isScrolled = window.scrollY > 60;
     header?.classList.toggle("bg-transparent", !isScrolled);
     scrolledClasses.forEach((cls) => header?.classList.toggle(cls, isScrolled));
