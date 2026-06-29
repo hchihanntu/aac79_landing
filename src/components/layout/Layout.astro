@@ -5,11 +5,30 @@ import FloatButtons from "@/components/layout/FloatButtons.astro";
 import "@/styles/global.css";
 
 const {
-  title = "AAC79 PLUS – Đại lý phân phối chính thức Bê Tông Khí Tân Kỷ Nguyên Tại Khánh Hòa",
-  description = "AAC79 PLUS chuyên phân phối và thi công bê tông khí chưng áp (AAC/EBlock) tại Khánh Hòa và Nam Trung Bộ. Giải pháp trọn gói – Green & Lean Construction.",
+  title = "AAC79 PLUS - Gach AAC, tam E-Panel, thi cong AAC tai Khanh Hoa",
+  description = "AAC79 PLUS chuyen phan phoi gach E-Block, tam E-Panel, vua chuyen dung va thi cong AAC tron goi tai Khanh Hoa. Bao gia nhanh trong 30 phut.",
 } = Astro.props;
 
 const isHome = Astro.url.pathname === "/";
+const canonicalUrl = new URL(Astro.url.pathname, "https://aac79.com.vn").toString();
+const siteSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "CONG TY TNHH AAC79 PLUS",
+  url: "https://aac79.com.vn",
+  image: "https://aac79.com.vn/images/logo-aac79.png",
+  telephone: "+84-907-523-113",
+  email: "aac79plus@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Lo 20, duong 18A, KDT Le Hong Phong II",
+    addressLocality: "Nha Trang",
+    addressRegion: "Khanh Hoa",
+    addressCountry: "VN",
+  },
+  areaServed: ["Khanh Hoa", "Nam Trung Bo"],
+  priceRange: "$$",
+};
 ---
 
 <!doctype html>
@@ -19,7 +38,17 @@ const isHome = Astro.url.pathname === "/";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="description" content={description} />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content="https://aac79.com.vn/images/hero-bg.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
     <title>{title}</title>
+
+    <script type="application/ld+json" set:html={JSON.stringify(siteSchema)} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

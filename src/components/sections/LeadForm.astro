@@ -38,11 +38,7 @@ const projectTypes = [
           <div class="mt-2 flex flex-col items-start gap-3">
             <a href="tel:0907523113" class="inline-flex items-center justify-start gap-3 rounded-lg bg-white px-5 py-4 text-base font-bold text-brand-darkest ring-1 ring-ink-200 transition-colors hover:bg-brand-pale">
               <Icon name="headset" class="h-6 w-6" />
-              Tư vấn: 0907 523 113 (Mr Hân)
-            </a>
-            <a href="https://zalo.me/0976228311" target="_blank" class="inline-flex items-center justify-start gap-3 rounded-lg bg-white px-5 py-4 text-base font-bold text-brand-darkest ring-1 ring-ink-200 transition-colors hover:bg-brand-pale">
-              <Icon name="shopping-cart" class="h-6 w-6" />
-              Đặt hàng: 0976 228 311 (Ms Đoan)
+              Tư vấn: 0907 523 113
             </a>
           </div>
         </div>
@@ -98,15 +94,15 @@ const projectTypes = [
     const msg = encodeURIComponent(
       `Xin chào AAC79 PLUS! Tôi là ${name}, SĐT: ${phone}. Cần tư vấn & báo giá cho: ${type || "công trình của tôi"}`
     );
-    window.open(`https://zalo.me/0976228311?message=${msg}`, "_blank");
+    window.open(`https://zalo.me/0907523113?message=${msg}`, "_blank");
 
     form.innerHTML = `
       <div class="py-8 text-center">
         <p class="mb-4 text-5xl">✅</p>
         <h4 class="mb-2 text-lg font-bold text-brand-darkest">Cảm ơn ${name}!</h4>
         <p class="text-sm text-ink-600">Chúng tôi sẽ liên hệ lại trong thời gian sớm nhất.</p>
-        <a href="tel:0976228311" class="mt-5 inline-flex items-center gap-2 rounded-lg bg-brand px-6 py-3 text-sm font-bold text-white">
-          Gọi ngay: 0976 228 311
+        <a href="tel:0907523113" class="mt-5 inline-flex items-center gap-2 rounded-lg bg-brand px-6 py-3 text-sm font-bold text-white">
+          Tư vấn: 0907 523 113
         </a>
       </div>`;
   });

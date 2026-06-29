@@ -5,8 +5,7 @@ import Icon from "@/components/ui/Icon.astro";
 
 const contactItems = [
   { icon: "map-pin", label: "Địa chỉ", html: "Lô 20, đường 18A, KĐT Lê Hồng Phong II,<br>phường Nam Nha Trang, Khánh Hòa" },
-  { icon: "headset", label: "Tư vấn kỹ thuật", html: '<a href="tel:0907523113" class="font-bold text-brand hover:text-brand-darkest">0907 523 113</a> <span class="text-xs text-ink-400">– Mr Hân</span>' },
-  { icon: "shopping-cart", label: "Đặt hàng & báo giá", html: '<a href="tel:0976228311" class="font-bold text-brand hover:text-brand-darkest">0976 228 311</a> <span class="text-xs text-ink-400">– Ms Đoan</span>' },
+  { icon: "headset", label: "Tư vấn", html: '<a href="tel:0907523113" class="font-bold text-brand hover:text-brand-darkest">0907 523 113</a>' },
   { icon: "envelope", label: "Email", html: '<a href="mailto:aac79plus@gmail.com" class="font-bold text-brand hover:text-brand-darkest">aac79plus@gmail.com</a>' },
   { icon: "globe-alt", label: "Website", html: '<a href="https://aac79.com.vn" target="_blank" class="font-bold text-brand hover:text-brand-darkest">aac79.com.vn</a>' },
 ];
@@ -48,14 +47,14 @@ const { page = false } = Astro.props;
       </div>
 
       <div data-aos="fade-up" data-aos-delay="100" class="lg:col-span-6">
-        <div class="flex h-full min-h-75 flex-col items-center justify-center gap-3 rounded-2xl border-2 border-dashed border-ink-200 bg-ink-100 p-8 text-center text-ink-400">
-          <Icon name="map" class="h-10 w-10" />
-          <p class="text-sm">Bản đồ Google Maps</p>
-          <p class="text-xs">14/7 đường Phong Châu, phường Nam Nha Trang</p>
-          <a href="https://maps.app.goo.gl/jmHc1WmV2fYjsxLB6" target="_blank" class="mt-1 inline-flex items-center gap-1.5 rounded-lg bg-brand px-4.5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-brand-darkest">
-            <Icon name="map-pin" class="h-4 w-4" /> Vị trí kho của chúng tôi
-          </a>
-        </div>
+        <iframe
+          src="https://www.google.com/maps?q=14/7+duong+Phong+Chau,+phuong+Nam+Nha+Trang,+Khanh+Hoa&output=embed"
+          title="Bản đồ AAC79 PLUS"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"
+          class="h-full min-h-85 w-full rounded-2xl border border-ink-200 bg-ink-100"
+        ></iframe>
       </div>
     </div>
   </Container>
