@@ -41,7 +41,7 @@ const { page = false } = Astro.props;
           <img src={`/images/${p.img}`} alt={p.title} class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
           <div class="absolute inset-0 bg-gradient-to-t from-[#0f2d19]/85 via-transparent to-transparent transition-opacity group-hover:from-[#0f2d19]/95"></div>
           <div class="absolute inset-x-0 bottom-0 p-5">
-            <h4 class="font-bold text-white">{p.title}</h4>
+            <h4 class="text-lg font-bold text-white">{p.title}</h4>
             <span class="text-sm text-white/65">{p.place}</span>
           </div>
         </div>

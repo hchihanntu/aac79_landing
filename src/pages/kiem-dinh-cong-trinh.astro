@@ -5,43 +5,72 @@ import Button from "@/components/ui/Button.astro";
 import Container from "@/components/ui/Container.astro";
 import Icon from "@/components/ui/Icon.astro";
 
+const heroStats = [
+  { value: "30+", label: "Nhà máy, kho xưởng đã kiểm định & nghiệm thu" },
+  { value: "10+", label: "Năm kinh nghiệm kết cấu & PCCC" },
+  { value: "3D", label: "Digital Twin cho mọi công trình bàn giao" },
+];
+
+const techStack = [
+  {
+    icon: "cube-transparent",
+    tag: "BIM",
+    title: "Mô hình thông tin công trình",
+    desc: "Dựng mô hình 3D chi tiết từ hiện trạng, làm nền tảng cho tính toán kết cấu và quản lý vòng đời công trình.",
+  },
+  {
+    icon: "camera",
+    tag: "UAV",
+    title: "Khảo sát bằng thiết bị bay",
+    desc: "Bay chụp và quét những vị trí khó tiếp cận, thu dữ liệu hình ảnh độ phân giải cao, an toàn và nhanh.",
+  },
+  {
+    icon: "cpu-chip",
+    tag: "Digital Twin",
+    title: "Bản sao số công trình",
+    desc: "Đồng bộ dữ liệu quan trắc theo thời gian thực, theo dõi sức khỏe kết cấu và cảnh báo sớm rủi ro.",
+  },
+];
+
+const processSteps = [
+  { icon: "magnifying-glass", title: "Khảo sát hiện trạng", desc: "Thu thập hồ sơ, quét 3D và UAV, ghi nhận khuyết tật, biến dạng thực tế." },
+  { icon: "beaker", title: "Thí nghiệm & đo đạc", desc: "Kiểm tra cường độ vật liệu, cốt thép, tải trọng và các chỉ tiêu kỹ thuật." },
+  { icon: "chart-bar", title: "Phân tích & đánh giá", desc: "Mô phỏng kết cấu trên mô hình BIM, đánh giá an toàn theo tiêu chuẩn hiện hành." },
+  { icon: "clipboard-check", title: "Báo cáo & nghiệm thu", desc: "Bàn giao hồ sơ kiểm định đầy đủ, đề xuất phương án xử lý và gia cường." },
+];
+
 const serviceCards = [
   {
     title: "Kiểm định dân dụng",
     href: "#kiem-dinh-dan-dung",
     icon: "building-office",
+    desc: "Nhà ở, chung cư, biệt thự, khách sạn, trường học và công trình cải tạo nâng tầng.",
   },
   {
     title: "Kiểm định nhà xưởng",
     href: "#kiem-dinh-nha-xuong",
     icon: "hardhat",
+    desc: "Kết cấu nhà xưởng, nâng tầng, công trình cũ trên 10 năm và phục vụ PCCC.",
   },
   {
     title: "Kiểm định hạ tầng",
     href: "#kiem-dinh-ha-tang",
     icon: "map",
+    desc: "Nền móng, đường nội bộ, thoát nước, tường chắn - kè và hạ tầng khu công nghiệp.",
   },
 ];
 
 const purposes = [
-  {
-    title: "Xin phép cải tạo, hoàn công",
-    icon: "document-text",
-  },
-  {
-    title: "Cải tạo, nâng tầng, thay đổi công năng",
-    icon: "adjustments-horizontal",
-  },
-  {
-    title: "Thẩm tra, nghiệm thu và giải quyết tranh chấp",
-    icon: "scale",
-  },
+  { title: "Xin phép cải tạo, hoàn công", desc: "Hồ sơ pháp lý đầy đủ để hoàn công và xin phép sửa chữa.", icon: "document-text" },
+  { title: "Cải tạo, nâng tầng, đổi công năng", desc: "Đánh giá khả năng chịu tải trước khi thay đổi kết cấu.", icon: "adjustments-horizontal" },
+  { title: "Thẩm tra, nghiệm thu, tranh chấp", desc: "Cơ sở kỹ thuật khách quan để nghiệm thu và giải quyết tranh chấp.", icon: "scale" },
 ];
 
 const inspectionSections = [
   {
     id: "kiem-dinh-dan-dung",
     title: "Kiểm định dân dụng",
+    lead: "Đánh giá an toàn công trình dân dụng trước khi mua bán, cải tạo hoặc khi có dấu hiệu xuống cấp.",
     items: [
       "Kiểm định nhà riêng lẻ",
       "Kiểm định chung cư",
@@ -50,14 +79,12 @@ const inspectionSections = [
       "Kiểm định trường học - trung tâm Anh Ngữ",
       "Kiểm định cải tạo nâng tầng",
     ],
-    images: [
-      "/images/kiemdinh-nhadandung-1.png",
-      "/images/kiemdinh-nhadandung-2.png",
-    ],
+    images: ["/images/kiemdinh-nhadandung-1.png", "/images/kiemdinh-nhadandung-2.png"],
   },
   {
     id: "kiem-dinh-ha-tang",
     title: "Kiểm định hạ tầng",
+    lead: "Kiểm tra nền móng và hạ tầng kỹ thuật, đảm bảo tuổi thọ và an toàn vận hành lâu dài.",
     items: [
       "Kiểm định nền móng",
       "Kiểm định đường nội bộ",
@@ -71,6 +98,7 @@ const inspectionSections = [
   {
     id: "kiem-dinh-nha-xuong",
     title: "Kiểm định nhà xưởng",
+    lead: "Thẩm định kết cấu nhà xưởng phục vụ nâng tầng, thay đổi công năng và nghiệm thu PCCC.",
     items: [
       "Kiểm định kết cấu nhà xưởng",
       "Kiểm định nâng tầng nhà xưởng",
@@ -78,10 +106,7 @@ const inspectionSections = [
       "Kiểm định thay đổi công năng",
       "Kiểm định phục vụ PCCC",
     ],
-    images: [
-      "/images/kiemdinh-nhaxuong-1.png",
-      "/images/kiemdinh-nhaxuong-2.png",
-    ],
+    images: ["/images/kiemdinh-nhaxuong-1.png", "/images/kiemdinh-nhaxuong-2.png"],
   },
 ];
 
@@ -93,10 +118,17 @@ const factoryProjects = [
 ];
 
 const capabilities = [
-  "Theo dõi sức khỏe công trình",
-  "An toàn công trình",
-  "Số hóa công trình xây dựng",
-  "Dịch vụ công nghệ cao khác",
+  { icon: "arrow-trending-up", title: "Theo dõi sức khỏe công trình", desc: "Quan trắc biến dạng, lún, nứt liên tục theo thời gian." },
+  { icon: "shield-check", title: "An toàn công trình", desc: "Đánh giá rủi ro và đề xuất giải pháp gia cường kịp thời." },
+  { icon: "cpu-chip", title: "Số hóa công trình xây dựng", desc: "Scan-to-BIM, dựng Digital Twin quản lý toàn vòng đời." },
+  { icon: "bolt", title: "Dịch vụ công nghệ cao khác", desc: "Ứng dụng UAV, cảm biến IoT và phân tích dữ liệu chuyên sâu." },
+];
+
+const reasons = [
+  { icon: "cpu-chip", title: "Công nghệ số dẫn đầu khu vực", desc: "Đơn vị tiên phong tại Nam Trung Bộ áp dụng BIM-UAV-Digital Twin vào kiểm định." },
+  { icon: "identification", title: "Đội ngũ chuyên gia kết cấu", desc: "Kỹ sư giàu kinh nghiệm, chứng chỉ hành nghề, am hiểu tiêu chuẩn hiện hành." },
+  { icon: "clipboard-list", title: "Hồ sơ pháp lý đầy đủ", desc: "Báo cáo kiểm định đạt chuẩn, phục vụ hoàn công, nghiệm thu và PCCC." },
+  { icon: "wrench", title: "Giải pháp trọn gói", desc: "Từ khảo sát, đánh giá đến đề xuất và giám sát phương án gia cường." },
 ];
 
 const clientGroups = [
@@ -111,7 +143,7 @@ const clientGroups = [
     icon: "hardhat",
   },
   {
-    title: "Chủ đầu tư dự án bất động sản dân dụng",
+    title: "Chủ đầu tư dự án bất động sản",
     text: "Vingroup, Sungroup, HUD, Hưng Thịnh...",
     icon: "building-office",
   },
@@ -122,54 +154,131 @@ const clientGroups = [
   title="Kiểm định công trình – AAC79 PROTECH"
   description="AAC79 PROTECH ứng dụng BIM-UAV-Digital Twin trong kiểm định, thẩm định và quan trắc sức khỏe công trình tại Khánh Hòa và Nam Trung Bộ."
 >
-  <section class="relative overflow-hidden bg-brand-darkest pt-32 pb-18 lg:pt-38 lg:pb-24">
+  <!-- HERO -->
+  <section class="relative overflow-hidden bg-brand-darkest pt-32 pb-20 lg:pt-40 lg:pb-28">
     <div
       class="absolute inset-0 -z-0 bg-cover bg-center"
-      style="background-image: linear-gradient(112deg, rgba(6,32,20,0.94) 0%, rgba(18,82,50,0.84) 52%, rgba(6,32,20,0.62) 100%), url('/images/hero-kiem-dinh-cong%20trinh.png');"
+      style="background-image: linear-gradient(115deg, rgba(6,32,20,0.95) 0%, rgba(18,82,50,0.86) 50%, rgba(6,32,20,0.7) 100%), url('/images/hero-kiem-dinh-cong%20trinh.png');"
     ></div>
     <Container class="relative z-10">
-      <div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-end">
-        <div class="lg:col-span-8">
-          <h1 class="text-balance text-[clamp(2rem,4vw,3rem)] font-bold uppercase leading-tight text-white" data-aos="fade-up">
-            Kiểm định công trình bằng hệ sinh thái số BIM-UAV-Digital Twin
-          </h1>
-          <div class="mt-5 max-w-3xl space-y-4 text-base leading-relaxed text-white/84 sm:text-lg" data-aos="fade-up" data-aos-delay="100">
-            <p><strong class="text-white">AAC79 PROTECH</strong> là đơn vị tiên phong tại Nam Trung Bộ ứng dụng hệ sinh thái số BIM-UAV-Digital Twin vào thẩm định và quan trắc sức khỏe công trình.</p>
-            <p><strong class="text-white">Với đội ngũ chuyên gia</strong> giàu kinh nghiệm, chúng tôi biến những dữ liệu kỹ thuật khô khan thành giải pháp tối ưu, giúp Chủ đầu tư kiểm soát rủi ro và tiết kiệm chi phí trong suốt vòng đời công trình.</p>
+      <h1
+        class="max-w-4xl text-balance text-[clamp(2rem,4.4vw,3.2rem)] font-bold uppercase leading-tight text-white"
+        data-aos="fade-up"
+      >
+        Kiểm định công trình bằng hệ sinh thái số <span class="text-brand-vivid">BIM · UAV · Digital Twin</span>
+      </h1>
+      <p
+        class="mt-5 max-w-3xl text-base leading-relaxed text-white/85 sm:text-lg"
+        data-aos="fade-up"
+        data-aos-delay="120"
+      >
+        Đơn vị tiên phong tại Nam Trung Bộ biến dữ liệu kỹ thuật thành giải pháp tối ưu, giúp Chủ đầu tư kiểm soát rủi ro và tiết kiệm chi phí trong suốt vòng đời công trình.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3" data-aos="fade-up" data-aos-delay="180">
+        <Button href="#leadform" variant="orange" size="lg">
+          <Icon name="headset" class="h-6 w-6" />
+          Liên hệ tư vấn
+        </Button>
+        <Button href="#dich-vu" variant="ghost" size="lg">
+          Xem dịch vụ kiểm định
+          <Icon name="arrow-right" class="h-5 w-5" />
+        </Button>
+      </div>
+
+      <div class="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-3" data-aos="fade-up" data-aos-delay="220">
+        {heroStats.map((stat) => (
+          <div class="rounded-2xl border border-white/15 bg-white/8 p-6 backdrop-blur">
+            <p class="font-heading text-4xl font-bold leading-none text-brand-vivid sm:text-5xl">{stat.value}</p>
+            <p class="mt-3 text-sm leading-relaxed text-white/75">{stat.label}</p>
           </div>
-          <div class="mt-8" data-aos="fade-up" data-aos-delay="160">
-            <Button href="#leadform" variant="orange" size="lg">
-              <Icon name="headset" class="h-6 w-6" />
-              Liên hệ tư vấn
-            </Button>
-          </div>
-        </div>
-        <div class="lg:col-span-4" data-aos="fade-up" data-aos-delay="220">
-          <div class="rounded-2xl border border-white/15 bg-white/8 p-6 text-white backdrop-blur">
-            <p class="text-5xl font-bold leading-none text-brand-vivid">30+</p>
-            <p class="mt-3 text-sm leading-relaxed text-white/75">Nhà máy, kho xưởng đã được thẩm định, kiểm định và nghiệm thu.</p>
-          </div>
-        </div>
+        ))}
       </div>
     </Container>
   </section>
 
-  <section class="bg-white py-18" id="dich-vu">
+  <!-- CÔNG NGHỆ -->
+  <section class="bg-white py-20" id="cong-nghe">
     <Container>
-      <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-        <div>
-          <h2 class="text-[clamp(1.7rem,3vw,2.5rem)] font-bold leading-tight text-brand-darkest">Các dịch vụ</h2>
-          <p class="mt-3 max-w-2xl text-base leading-relaxed text-ink-600">Tập trung vào kiểm định hiện trạng, đánh giá an toàn và đề xuất phương án kỹ thuật phù hợp với mục tiêu đầu tư.</p>
-        </div>
+      <div class="mx-auto max-w-2xl text-center" data-aos="fade-up">
+        <h2 class="mt-3.5 text-balance text-[clamp(1.7rem,3vw,2.6rem)] font-bold leading-tight text-brand-darkest">
+          Ba trụ cột của hệ sinh thái số
+        </h2>
+        <p class="mt-3 text-base leading-relaxed text-ink-600">
+          Kết hợp mô hình BIM, khảo sát UAV và Digital Twin để kiểm định chính xác, minh bạch và trực quan.
+        </p>
       </div>
 
-      <div class="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
+      <div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+        {techStack.map((tech, index) => (
+          <div
+            class="group relative overflow-hidden rounded-2xl border border-ink-200 bg-ink-50 p-8 transition-colors hover:border-brand-light hover:bg-white"
+            data-aos="fade-up"
+            data-aos-delay={index * 90}
+          >
+            <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand to-brand-accent"></div>
+            <div class="flex h-16 w-16 items-center justify-center rounded-xl bg-brand-pale text-brand transition-colors group-hover:bg-brand group-hover:text-white">
+              <Icon name={tech.icon} class="h-9 w-9" />
+            </div>
+            <span class="mt-6 block text-sm font-bold uppercase tracking-[0.18em] text-brand-light">{tech.tag}</span>
+            <h3 class="mt-1.5 text-xl font-bold text-brand-darkest">{tech.title}</h3>
+            <p class="mt-3 text-base leading-relaxed text-ink-600">{tech.desc}</p>
+          </div>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- QUY TRÌNH -->
+  <section class="bg-ink-50 py-20" id="quy-trinh">
+    <Container>
+      <div class="mx-auto max-w-2xl text-center" data-aos="fade-up">
+        <h2 class="mt-3.5 text-balance text-[clamp(1.7rem,3vw,2.6rem)] font-bold leading-tight text-brand-darkest">
+          Kiểm định bài bản, minh bạch
+        </h2>
+      </div>
+
+      <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {processSteps.map((step, index) => (
+          <div class="relative rounded-2xl border border-ink-200 bg-white p-7" data-aos="fade-up" data-aos-delay={index * 80}>
+            <span class="font-heading absolute right-6 top-5 text-5xl font-bold leading-none text-brand-pale">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <Icon name={step.icon} class="h-12 w-12 text-brand" />
+            <h3 class="mt-5 text-lg font-bold text-brand-darkest">{step.title}</h3>
+            <p class="mt-2.5 text-sm leading-relaxed text-ink-600">{step.desc}</p>
+          </div>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- DỊCH VỤ -->
+  <section class="bg-white py-20" id="dich-vu">
+    <Container>
+      <div class="max-w-2xl" data-aos="fade-up">
+        <h2 class="mt-3.5 text-balance text-[clamp(1.7rem,3vw,2.6rem)] font-bold leading-tight text-brand-darkest">
+          Kiểm định cho mọi loại công trình
+        </h2>
+        <p class="mt-3 text-base leading-relaxed text-ink-600">
+          Tập trung vào kiểm định hiện trạng, đánh giá an toàn và đề xuất phương án kỹ thuật phù hợp mục tiêu đầu tư.
+        </p>
+      </div>
+
+      <div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
         {serviceCards.map((service, index) => (
-          <a href={service.href} class="group rounded-xl border border-ink-200 bg-ink-50 p-7 transition-colors hover:border-brand-light hover:bg-white" data-aos="fade-up" data-aos-delay={index * 80}>
-            <Icon name={service.icon} class="h-10 w-10 text-brand" />
-            <h3 class="mt-5 text-xl font-bold text-brand-darkest">{service.title}</h3>
-            <span class="mt-4 inline-flex items-center gap-2 text-sm font-bold text-orange">
-              Xem chi tiết <Icon name="arrow-right" class="h-4 w-4" />
+          <a
+            href={service.href}
+            class="group flex flex-col rounded-2xl border border-ink-200 bg-ink-50 p-8 transition-colors hover:border-brand-light hover:bg-white"
+            data-aos="fade-up"
+            data-aos-delay={index * 80}
+          >
+            <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-brand-pale text-brand transition-colors group-hover:bg-brand group-hover:text-white">
+              <Icon name={service.icon} class="h-8 w-8" />
+            </div>
+            <h3 class="mt-6 text-xl font-bold text-brand-darkest">{service.title}</h3>
+            <p class="mt-3 flex-1 text-base leading-relaxed text-ink-600">{service.desc}</p>
+            <span class="mt-6 inline-flex items-center gap-2 text-sm font-bold text-orange">
+              Xem chi tiết <Icon name="arrow-right" class="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </span>
           </a>
         ))}
@@ -177,31 +286,39 @@ const clientGroups = [
     </Container>
   </section>
 
-  <section class="bg-ink-50 py-18">
+  <!-- MỤC ĐÍCH KIỂM ĐỊNH -->
+  <section class="bg-ink-50 py-20">
     <Container>
-      <h2 class="text-center text-[clamp(1.5rem,2.4vw,2.1rem)] font-bold text-brand-darkest">Kiểm định phục vụ</h2>
-      <div class="mt-9 grid grid-cols-1 gap-5 md:grid-cols-3">
+      <div class="mx-auto max-w-2xl text-center" data-aos="fade-up">
+        <h2 class="mt-3.5 text-balance text-[clamp(1.7rem,3vw,2.6rem)] font-bold leading-tight text-brand-darkest">
+          Khi nào bạn cần kiểm định?
+        </h2>
+      </div>
+      <div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
         {purposes.map((purpose, index) => (
-          <div class="rounded-xl border border-ink-200 bg-white p-7 text-center" data-aos="fade-up" data-aos-delay={index * 80}>
-            <Icon name={purpose.icon} class="mx-auto h-11 w-11 text-brand" />
-            <h3 class="mt-5 text-base font-bold leading-snug text-brand-darkest">{purpose.title}</h3>
+          <div class="rounded-2xl border border-ink-200 bg-white p-8 text-center" data-aos="fade-up" data-aos-delay={index * 80}>
+            <Icon name={purpose.icon} class="mx-auto h-12 w-12 text-brand" />
+            <h3 class="mt-5 text-lg font-bold leading-snug text-brand-darkest">{purpose.title}</h3>
+            <p class="mt-2.5 text-sm leading-relaxed text-ink-600">{purpose.desc}</p>
           </div>
         ))}
       </div>
     </Container>
   </section>
 
+  <!-- CHI TIẾT DỊCH VỤ -->
   <section class="bg-white py-20">
     <Container>
       <div class="space-y-20">
         {inspectionSections.map((section) => (
-          <div id={section.id} class={`grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-center ${section.reverse ? "" : ""}`}>
+          <div id={section.id} class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-center">
             <div class:list={["lg:col-span-5", section.reverse && "lg:order-2"]} data-aos="fade-up">
               <h2 class="text-[clamp(1.6rem,3vw,2.5rem)] font-bold leading-tight text-brand-darkest">{section.title}</h2>
+              <p class="mt-4 text-base leading-relaxed text-ink-600">{section.lead}</p>
               <ul class="mt-6 grid gap-3">
                 {section.items.map((item) => (
                   <li class="flex items-start gap-3 text-base font-medium text-ink-600">
-                    <Icon name="check-circle" class="mt-0.5 h-5 w-5 text-brand-light" />
+                    <Icon name="check-circle" class="mt-0.5 h-5 w-5 shrink-0 text-brand-light" />
                     {item}
                   </li>
                 ))}
@@ -209,7 +326,7 @@ const clientGroups = [
               <div class="mt-7">
                 <Button href="#leadform" variant="orange" size="lg">
                   <Icon name="headset" class="h-6 w-6" />
-                  Liên hệ tư vấn {section.title.toLowerCase()}
+                  Liên hệ tư vấn
                 </Button>
               </div>
             </div>
@@ -247,62 +364,106 @@ const clientGroups = [
     </Container>
   </section>
 
+  <!-- NĂNG LỰC -->
   <section id="nang-luc" class="bg-brand-darkest py-20 text-white">
     <Container>
-      <div class="grid grid-cols-1 gap-10 lg:grid-cols-12">
-        <div class="lg:col-span-4" data-aos="fade-up">
-          <Icon name="shield-check" class="h-12 w-12 text-brand-vivid" />
-          <h2 class="mt-5 text-[clamp(1.7rem,3vw,2.6rem)] font-bold leading-tight">Năng lực</h2>
-          <p class="mt-4 text-base leading-relaxed text-white/75">AAC79 PROTECH kết hợp kiểm định truyền thống với công nghệ số để phục vụ các yêu cầu kỹ thuật phức tạp.</p>
-        </div>
-        <div class="lg:col-span-8" data-aos="fade-up" data-aos-delay="100">
-          <div class="rounded-2xl border border-white/15 bg-white/8 p-6">
-            <h3 class="text-xl font-bold text-brand-vivid">Thẩm tra kết cấu trong điều kiện cháy</h3>
-            <div class="mt-5 overflow-x-auto">
-              <table class="w-full min-w-[620px] text-left text-sm">
-                <thead class="border-b border-white/20 text-white/70">
-                  <tr>
-                    <th class="w-14 py-3 font-semibold">STT</th>
-                    <th class="py-3 font-semibold">Tên công trình</th>
-                    <th class="py-3 font-semibold">Địa chỉ</th>
-                  </tr>
-                </thead>
-                <tbody class="divide-y divide-white/12">
-                  {factoryProjects.map((project) => (
-                    <tr>
-                      <td class="py-4 text-white/65">{project[0]}</td>
-                      <td class="py-4 font-semibold text-white">{project[1]}</td>
-                      <td class="py-4 text-white/75">{project[2]}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <p class="mt-5 text-sm text-white/70">Và hơn 30 nhà máy, kho xưởng khác đã được thẩm định và nghiệm thu.</p>
-          </div>
+      <div class="mx-auto max-w-2xl text-center" data-aos="fade-up">
+        <Icon name="shield-check" class="mx-auto h-12 w-12 text-brand-vivid" />
+        <h2 class="mt-4 text-balance text-[clamp(1.7rem,3vw,2.6rem)] font-bold leading-tight">Năng lực kiểm định</h2>
+        <p class="mt-4 text-base leading-relaxed text-white/75">
+          AAC79 PROTECH kết hợp kiểm định truyền thống với công nghệ số để phục vụ những yêu cầu kỹ thuật phức tạp nhất.
+        </p>
+      </div>
 
-          <div class="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
-            {capabilities.map((item) => (
-              <div class="rounded-xl border border-white/15 bg-white/8 p-5 font-semibold text-white/90">
-                {item}
-              </div>
-            ))}
+      <div class="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {capabilities.map((item, index) => (
+          <div
+            class="rounded-2xl border border-white/15 bg-white/8 p-6 transition-colors hover:border-brand-vivid/40 hover:bg-brand-vivid/10"
+            data-aos="fade-up"
+            data-aos-delay={index * 70}
+          >
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-vivid/15 text-brand-vivid">
+              <Icon name={item.icon} class="h-7 w-7" />
+            </div>
+            <h4 class="mt-5 text-base font-bold text-white">{item.title}</h4>
+            <p class="mt-2 text-sm leading-relaxed text-white/65">{item.desc}</p>
           </div>
+        ))}
+      </div>
+
+      <div class="mt-12 rounded-2xl border border-white/15 bg-white/8 p-6 sm:p-8" data-aos="fade-up">
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div class="flex items-center gap-3">
+            <Icon name="fire" class="h-8 w-8 shrink-0 text-orange" />
+            <h3 class="text-xl font-bold text-brand-vivid">Thẩm tra kết cấu trong điều kiện cháy</h3>
+          </div>
+          <span class="inline-flex w-fit items-center gap-2 rounded-full bg-brand-vivid/15 px-4 py-1.5 text-sm font-bold text-brand-vivid">
+            <Icon name="check-circle" class="h-4 w-4" /> 30+ công trình
+          </span>
         </div>
+        <div class="mt-6 overflow-x-auto">
+          <table class="w-full min-w-[620px] text-left text-sm">
+            <thead class="border-b border-white/20 text-white/70">
+              <tr>
+                <th class="w-14 py-3 font-semibold">STT</th>
+                <th class="py-3 font-semibold">Tên công trình</th>
+                <th class="py-3 font-semibold">Địa chỉ</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-white/12">
+              {factoryProjects.map((project) => (
+                <tr class="transition-colors hover:bg-white/5">
+                  <td class="py-4 text-white/65">{project[0]}</td>
+                  <td class="py-4 font-semibold text-white">{project[1]}</td>
+                  <td class="py-4 text-white/75">{project[2]}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p class="mt-5 flex items-center gap-2 text-sm text-white/70">
+          <Icon name="check-circle" class="h-5 w-5 shrink-0 text-brand-vivid" />
+          Và hơn 30 nhà máy, kho xưởng khác đã được thẩm định và nghiệm thu.
+        </p>
       </div>
     </Container>
   </section>
 
+  <!-- VÌ SAO CHỌN -->
+  <section class="bg-white py-20">
+    <Container>
+      <div class="mx-auto max-w-2xl text-center" data-aos="fade-up">
+        <h2 class="mt-3.5 text-balance text-[clamp(1.7rem,3vw,2.6rem)] font-bold leading-tight text-brand-darkest">
+          Đối tác kiểm định đáng tin cậy
+        </h2>
+      </div>
+      <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {reasons.map((reason, index) => (
+          <div class="rounded-2xl border border-ink-200 bg-ink-50 p-7 transition-colors hover:border-brand-light hover:bg-white" data-aos="fade-up" data-aos-delay={index * 70}>
+            <Icon name={reason.icon} class="h-12 w-12 text-brand" />
+            <h3 class="mt-5 text-lg font-bold text-brand-darkest">{reason.title}</h3>
+            <p class="mt-2.5 text-sm leading-relaxed text-ink-600">{reason.desc}</p>
+          </div>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- KHÁCH HÀNG -->
   <section class="bg-ink-50 py-20">
     <Container>
-      <div data-aos="fade-up">
-        <h2 class="text-center text-[clamp(1.7rem,3vw,2.6rem)] font-bold leading-tight text-brand-darkest">Khách hàng & chủ đầu tư</h2>
+      <div class="mx-auto max-w-2xl text-center" data-aos="fade-up">
+        <h2 class="mt-3.5 text-balance text-[clamp(1.7rem,3vw,2.6rem)] font-bold leading-tight text-brand-darkest">
+          Khách hàng & chủ đầu tư
+        </h2>
       </div>
-      <div class="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
+      <div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
         {clientGroups.map((client, index) => (
-          <div class="rounded-xl border border-ink-200 bg-white p-7" data-aos="fade-up" data-aos-delay={index * 80}>
-            <Icon name={client.icon} class="h-11 w-11 text-brand" />
-            <h3 class="mt-5 text-lg font-bold leading-snug text-brand-darkest">{client.title}</h3>
+          <div class="rounded-2xl border border-ink-200 bg-white p-8" data-aos="fade-up" data-aos-delay={index * 80}>
+            <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-brand-pale text-brand">
+              <Icon name={client.icon} class="h-8 w-8" />
+            </div>
+            <h3 class="mt-6 text-lg font-bold leading-snug text-brand-darkest">{client.title}</h3>
             <p class="mt-3 text-sm font-medium leading-relaxed text-ink-600">{client.text}</p>
           </div>
         ))}

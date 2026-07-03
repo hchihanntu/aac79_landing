@@ -27,8 +27,8 @@ const { page = false } = Astro.props;
     <div class="mt-11 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-12">
       {commitments.map((c, i) => (
         <div data-aos="fade-up" data-aos-delay={(i % 7) * 60} class={`group rounded-xl bg-brand-pale p-7 text-center transition-colors hover:bg-brand ${i < 4 ? "lg:col-span-3" : "lg:col-span-4"}`}>
-          <Icon name={c.icon} class="mx-auto mb-5 h-14 w-14 text-brand transition-colors group-hover:text-white" />
-          <h4 class="mb-2 text-base font-bold text-brand-darkest transition-colors group-hover:text-white">{c.title}</h4>
+          <Icon name={c.icon} class="mx-auto mb-5 h-16 w-16 text-brand transition-colors group-hover:text-white" />
+          <h4 class="mb-2 text-lg font-bold text-brand-darkest transition-colors group-hover:text-white">{c.title}</h4>
           <p class="text-sm leading-relaxed text-ink-600 transition-colors group-hover:text-white/85">{c.desc}</p>
         </div>
       ))}

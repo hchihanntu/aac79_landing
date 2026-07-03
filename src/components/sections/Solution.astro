@@ -37,7 +37,7 @@ const cards = [
       {cards.map((c, i) => (
         <div data-aos="fade-up" data-aos-delay={i * 80} class="rounded-xl border-t-[3px] border-brand bg-ink-50 p-6 transition-colors hover:bg-brand-pale">
           <Icon name={c.icon} class="mb-4 h-10 w-10 text-brand" />
-          <h4 class="mb-2 font-bold text-brand-darkest">{c.title}</h4>
+          <h4 class="mb-2 text-lg font-bold text-brand-darkest">{c.title}</h4>
           <p class="text-sm leading-relaxed text-ink-600">{c.desc}</p>
         </div>
       ))}

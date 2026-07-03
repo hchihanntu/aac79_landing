@@ -43,7 +43,7 @@ const stats = [
         <div class="absolute inset-x-5 bottom-5 grid grid-cols-1 gap-3 sm:grid-cols-3">
           {stats.map((s) => (
             <div class="rounded-xl border border-white/10 bg-[#0f2d19]/90 p-5 text-center shadow-soft backdrop-blur transition-transform hover:-translate-y-1">
-              <strong class="stat-value block text-4xl font-extrabold leading-none text-brand-accent sm:text-5xl">{s.value}</strong>
+              <strong class="stat-value block font-heading text-4xl font-extrabold leading-none text-brand-accent sm:text-5xl">{s.value}</strong>
               <span class="mt-2 block text-sm font-semibold text-white/78">{s.label}</span>
             </div>
           ))}

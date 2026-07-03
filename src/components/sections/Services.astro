@@ -40,8 +40,8 @@ const { page = false } = Astro.props;
         <div data-aos="fade-up" data-aos-delay={i * 100} class="relative overflow-hidden rounded-2xl border border-ink-200 bg-ink-50 p-9 transition-colors hover:bg-white hover:border-brand-light">
           <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand to-brand-accent"></div>
           <span class="absolute top-5 right-6 text-5xl font-bold leading-none text-brand-pale">{s.num}</span>
-          <Icon name={s.icon} class="mb-5 h-11 w-11 text-brand" />
-          <h3 class="mb-3.5 text-lg font-bold text-brand-darkest">{s.title}</h3>
+          <Icon name={s.icon} class="mb-5 h-12 w-12 text-brand" />
+          <h3 class="mb-3.5 text-xl font-bold text-brand-darkest">{s.title}</h3>
           <ul class="flex flex-col gap-2">
             {s.items.map((item) => (
               <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink-600">
