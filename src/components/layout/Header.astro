@@ -2,10 +2,19 @@
 import Container from "@/components/ui/Container.astro";
 import Button from "@/components/ui/Button.astro";
 import Icon from "@/components/ui/Icon.astro";
+import { profiles } from "@/data/ho-so-nang-luc";
 
 const navItems = [
   { href: "/#hero", label: "Trang chủ" },
   { href: "/kiem-dinh-cong-trinh/", label: "Dịch vụ kiểm định công trình" },
+  {
+    href: "/ho-so-nang-luc/aac79-protech/",
+    label: "Hồ sơ năng lực",
+    children: profiles.map((p) => ({
+      href: `/ho-so-nang-luc/${p.slug}/`,
+      label: p.navLabel,
+    })),
+  },
   {
     href: "/#hero",
     label: "AAC79 PLUS",
@@ -15,7 +24,6 @@ const navItems = [
       { href: "/#benefits", label: "Lợi ích" },
       { href: "/#products", label: "Sản phẩm" },
       { href: "/#services", label: "Dịch vụ thi công" },
-      { href: "/ho-so-nang-luc/", label: "Hồ sơ năng lực" },
     ],
   },
   {
@@ -26,7 +34,6 @@ const navItems = [
       { href: "/kiem-dinh-cong-trinh/#kiem-dinh-dan-dung", label: "Kiểm định dân dụng" },
       { href: "/kiem-dinh-cong-trinh/#kiem-dinh-ha-tang", label: "Kiểm định hạ tầng" },
       { href: "/kiem-dinh-cong-trinh/#kiem-dinh-nha-xuong", label: "Kiểm định nhà xưởng" },
-      { href: "/ho-so-nang-luc/", label: "Hồ sơ năng lực" },
     ],
   },
 ];
@@ -55,10 +62,10 @@ const { transparentOnTop = false } = Astro.props;
                 {item.children && <Icon name="chevron-down" class="h-4 w-4 transition-transform group-hover:rotate-180" />}
               </a>
               {item.children && (
-                <div class="invisible absolute left-0 top-full min-w-64 translate-y-2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                <div class="invisible absolute left-0 top-full w-[min(28rem,calc(100vw-2rem))] translate-y-2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
                   <div class="overflow-hidden rounded-xl border border-white/10 bg-brand-darkest/98 p-2 shadow-2xl shadow-black/25 backdrop-blur-md">
                     {item.children.map((child) => (
-                      <a href={child.href} class="block rounded-lg px-4 py-2.5 text-sm font-semibold text-white/78 transition-colors hover:bg-white/10 hover:text-white">
+                      <a href={child.href} class="block rounded-lg px-4 py-2.5 text-sm font-semibold leading-snug text-white/78 transition-colors hover:bg-white/10 hover:text-white">
                         {child.label}
                       </a>
                     ))}

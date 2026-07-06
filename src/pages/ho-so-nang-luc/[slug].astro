@@ -1,0 +1,61 @@
+---
+import Layout from "@/components/layout/Layout.astro";
+import Button from "@/components/ui/Button.astro";
+import Icon from "@/components/ui/Icon.astro";
+import { profiles } from "@/data/ho-so-nang-luc";
+
+export function getStaticPaths() {
+  return profiles.map((profile) => ({
+    params: { slug: profile.slug },
+    props: { profile },
+  }));
+}
+
+const { profile } = Astro.props;
+const viewerUrl = `/pdfjs/web/viewer.html?file=${encodeURIComponent(profile.file)}`;
+---
+
+<Layout title={`${profile.title} – Hồ sơ năng lực`} description={profile.description}>
+  <section class="bg-brand-darkest px-6 pt-32 pb-14 text-white lg:px-12 lg:pt-40 lg:pb-16">
+    <h1 class="max-w-4xl text-[clamp(1.9rem,4vw,3.4rem)] font-bold uppercase leading-[1.08]">
+      {profile.title}
+    </h1>
+    <p class="mt-5 max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg">
+      {profile.description}
+    </p>
+    <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+      <Button href={profile.file} target="_blank" rel="noreferrer" variant="orange" size="lg">
+        <Icon name="document-text" class="h-6 w-6" />
+        Mở PDF ở tab mới
+      </Button>
+      <a
+        href={profile.file}
+        download
+        class="inline-flex items-center justify-center gap-2 rounded-lg border border-white/25 px-7 py-4 text-base font-bold text-white transition-colors hover:bg-white/10"
+      >
+        <Icon name="arrow-right" class="h-5 w-5" />
+        Tải xuống
+      </a>
+    </div>
+  </section>
+
+  <nav class="flex flex-wrap gap-x-8 gap-y-2 border-b border-ink-200 bg-white px-6 py-4 text-sm lg:px-12">
+    {profiles.map((item) => (
+      <a
+        href={`/ho-so-nang-luc/${item.slug}/`}
+        class:list={[
+          "font-semibold transition-colors",
+          item.slug === profile.slug ? "text-brand-darkest" : "text-ink-400 hover:text-ink-800",
+        ]}
+      >
+        {item.eyebrow === "Đối tác" ? item.navLabel.replace("Đối tác - ", "") : item.title}
+      </a>
+    ))}
+  </nav>
+
+  <iframe
+    src={viewerUrl}
+    title={`Hồ sơ năng lực ${profile.title}`}
+    class="h-[85vh] min-h-[600px] w-full border-0"
+  ></iframe>
+</Layout>
