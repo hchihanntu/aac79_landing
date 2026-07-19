@@ -1,14 +1,15 @@
 ---
 import Container from "@/components/ui/Container.astro";
 import SectionIntro from "@/components/ui/SectionIntro.astro";
+import YouTubeEmbed from "@/components/ui/YouTubeEmbed.astro";
 
 const projects = [
-  { img: "project-the-summer.jpg", title: "Khách sạn The Summer", place: "Nha Trang, Khánh Hòa" },
-  { img: "project-cuu-long-son-tu.jpg", title: "Cửu Long Sơn Tự", place: "Khánh Hòa" },
-  { img: "project-champa-island.jpg", title: "KDL Champa Island", place: "Nha Trang, Khánh Hòa" },
-  { img: "project-kingtown.jpg", title: "Khách sạn Kingtown", place: "Nha Trang, Khánh Hòa" },
-  { img: "project-navy.jpg", title: "Khách sạn Navy", place: "Nha Trang, Khánh Hòa" },
-  { img: "project-nha-kho-vat-lieu.jpg", title: "Nhà xưởng công nghiệp", place: "KCN Suối Dầu" },
+  { img: "project-the-summer.webp", title: "Khách sạn The Summer", place: "Nha Trang, Khánh Hòa" },
+  { img: "project-cuu-long-son-tu.webp", title: "Cửu Long Sơn Tự", place: "Khánh Hòa" },
+  { img: "project-champa-island.webp", title: "KDL Champa Island", place: "Nha Trang, Khánh Hòa" },
+  { img: "project-kingtown.webp", title: "Khách sạn Kingtown", place: "Nha Trang, Khánh Hòa" },
+  { img: "project-navy.webp", title: "Khách sạn Navy", place: "Nha Trang, Khánh Hòa" },
+  { img: "project-nha-kho-vat-lieu.webp", title: "Nhà xưởng công nghiệp", place: "KCN Suối Dầu" },
 ];
 
 const { page = false } = Astro.props;
@@ -22,23 +23,22 @@ const { page = false } = Astro.props;
       description="Hàng trăm công trình dân dụng và công nghiệp đã được hoàn thiện với vật liệu AAC và sự đồng hành của đội ngũ AAC79 PLUS."
     />
 
-    <div data-aos="zoom-in" class={`mt-11 max-w-3xl overflow-hidden rounded-2xl border border-ink-200 bg-brand-darkest ${page ? "" : "mx-auto"}`}>
-      <div class="aspect-video w-full">
-        <iframe
-          class="h-full w-full"
-          src="https://www.youtube.com/embed/M1PSx8WwWAs?si=0dfJTyZG6YvtF0ub"
-          title="Video dự án AAC79 PLUS"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-          loading="lazy"
-        ></iframe>
-      </div>
+    <div data-aos="zoom-in" class={`mt-11 max-w-3xl ${page ? "" : "mx-auto"}`}>
+      <YouTubeEmbed videoId="M1PSx8WwWAs" title="Video dự án AAC79 PLUS" />
     </div>
 
     <div class="mt-11 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {projects.map((p, i) => (
         <div data-aos="fade-up" data-aos-delay={(i % 3) * 90} class="group relative aspect-[4/3] cursor-pointer overflow-hidden rounded-xl">
-          <img src={`/images/${p.img}`} alt={p.title} class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
+          <img
+            src={`/images/${p.img}`}
+            alt={p.title}
+            width="1280"
+            height="960"
+            loading="lazy"
+            decoding="async"
+            class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
           <div class="absolute inset-0 bg-gradient-to-t from-[#0f2d19]/85 via-transparent to-transparent transition-opacity group-hover:from-[#0f2d19]/95"></div>
           <div class="absolute inset-x-0 bottom-0 p-5">
             <h4 class="text-lg font-bold text-white">{p.title}</h4>

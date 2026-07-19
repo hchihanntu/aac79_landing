@@ -51,7 +51,15 @@ const { transparentOnTop = false } = Astro.props;
     <nav class="flex h-17 items-center justify-between">
       <div class="flex items-center gap-8">
         <a href="/" class="flex items-center gap-2.5">
-          <img src="/images/logo-aac79.png" alt="AAC79 PLUS" class="h-11 w-auto object-contain" />
+          <img
+            src="/images/logo-aac79.png"
+            alt="AAC79 PLUS"
+            width="2560"
+            height="919"
+            fetchpriority="high"
+            decoding="async"
+            class="h-11 w-auto object-contain"
+          />
         </a>
 
         <ul class="hidden items-center gap-1 lg:flex">
