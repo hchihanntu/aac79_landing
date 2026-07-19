@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://aac79.com.vn/sitemap.xml
